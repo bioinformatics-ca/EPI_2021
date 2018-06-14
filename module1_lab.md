@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /epigenomics_2017_module1_lab
+permalink: /epigenomics_2018_module1_lab
 title: Epigenomics Lab 1
 header1: Workshop Pages for Students
-header2: Epigenomic Data Analysis 2017 Module 1 Lab
+header2: Epigenomic Data Analysis 2018 Module 1 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/epigenomics_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2018
 description: This module will cover the basics of how to login to the cluster, launch jobs and perform a basic QC analysis of the data sets.
 author: Martin Hirst
 modified: 2017-08-10
