@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /epigenomics_2017_module3_lab
+permalink: /epigenomics_2018_module3_lab
 title: Epigenomics Lab 3
 header1: Workshop Pages for Students
-header2: Epigenomic Data Analysis 2017 Module 3 Lab
+header2: Epigenomic Data Analysis 2018 Module 3 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/epigenomics_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2018
 ---
 
 # Module 3: Introduction to WGBS and Analysis 
