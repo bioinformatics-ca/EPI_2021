@@ -13,60 +13,70 @@ length: 2 days
 
 # Welcome <a id="welcome"></a>
 
-Welcome to Epigenomic Data Analysis.  
+Welcome to Epigenomic Data Analysis 2018.  
 
-## Pre-readings, Pre-work, and Laptop Setup   
+The course schedule can be found [here](https://bioinformaticsdotca.github.io/Epigenomics_2018_schedule).
 
-### Install These Tools Before the Workshop
+Pre-readings, pre-work, and laptop setup instructions can be found [here](https://bioinformaticsdotca.github.io/epigenomics_2018_prework).<a id="preworkshop"></a>  
 
-**A robust text editor.**
+We are using Google Classroom for discussion. Join the Class at https://classroom.google.com, select the "+" symbol in the upper right corner, click on "Join Class" and enter the class code provided to you.
 
-For Windows/PC - notepad++ (http://notepad-plus-plus.org/).
-For Linux - gedit (http://projects.gnome.org/gedit/).
-For Mac – TextWrangler (http://www.barebones.com/products/textwrangler/download.html)
+The full course notes are available as a [single PDF](https://drive.google.com/open?id=1LgidnXsoguj_Y-XaN1w0VhGk0WSYEveG).  
 
-**A file decompression tool.**
-For Windows/PC – 7zip (http://www.7-zip.org/).
-For Linux – already there.
-For Mac – already there.
+# Day 1 <a id="day1"></a>
 
-**A robust internet browser** such as Chrome (Internet Explorer is not recommended). Firefox and Safari are also fine.
+##  Welcome <a id="welcome"></a>
 
-**A PDF viewer** (Adobe Acrobat or equivalent).
+  *<font color="#827e9c">Ann Meyer</font>* 
+  
+  [Resources](https://drive.google.com/open?id=1ewMnAls8vD-EuWy3zCCi8CyT7pxD31Wb)  
 
-**Java** -The visualization program that we will be using (IGV) requires Java. Check if you have Java installed at https://www.java.com/verify/ and download it if it is not.
+##  Module 1: Introduction to ChIP Sequencing and Analysis <a id="module_1"></a>
 
-**Integrative Genomics Viewer 2.3 (IGV)**
-With Java installed, go to http://www.broadinstitute.org/igv/ and register in order to get access to the download page. Once there, click on the appropriate launch button that matches the amount of memory available on your laptop (if you have space, 1.2GB is good, more is better).
-Chrome: Does not launch "java webstart" files by default. Instead, the launch buttons below will download a "jnlp" file. This should appear in the lower left corner of the browser. Double-click the downloaded file to run.
-Windows users: To run with more than 1.2 GB you must install 64-bit Java. In general trying to launch with more memory than your OS/Java combination supports will result in the obscure error "could not create virtual machine".
+  *<font color="#827e9c">Martin Hirst</font>*
+  
+  [Lecture](https://drive.google.com/open?id=1ksc3itcHoQsx2XKc6tCMspSO4KmasN0z)  
+  
+  [Introduction to Compute Canada](https://drive.google.com/open?id=10VxoWJI7MJuDkdzFDQ8ikPxixFXjG9Bc)  
+  
+  [Using the Compute Canada HPC](https://bioinformaticsdotca.github.io/epigenomics_2018_hpc_2018)  
 
-**SSH client** - Mac and Linux users already have the command line ssh program that can be run from the terminal. On a MAC, the Terminal window is located in Applications/Utilities. Tip: add the terminal window to your dock so it is easy to open when needed.  For Windows users, please download PuTTY: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module1_lab)  
+  
+  
+##  Module 2: ChIP-Seq Alignment, Peak Calling, and Visualization <a id="module_2"></a>
 
-**SCP/SFTP client** - We will be moving data from the servers to the student laptops for visualization. Mac and Linux users already have the command line applications scp and sftp. For Windows users, please install WinSCP: http://winscp.net/eng/download.php
+  *<font color="#827e9c">Misha Bilenky</font>*
+  
+  [Lecture](https://drive.google.com/open?id=1X6oxur0zmnPpulSCi-cwpZEdEqAVkJw0)   
+  
+  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module2_lab)  
 
-### Pre-workshop Readings
+## Integrated Assignment
 
-* [Introduction to High-Performance Computing](http://insidehpc.com/hpc-basic-training/what-is-hpc/)
+[Assignment link](http://bioinformaticsdotca.github.io/epigenomics_2018_integrated_assignment)  
 
-* [Introduction to Compute Canada](https://www.computecanada.ca/research-portal/accessing-resources/)
+# Day 2 <a id="day2"></a>
 
-* [Introduction to epigenomics](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3080743/)
+##  Module 3: Introduction to WGBS and Analysis <a id="module_3"></a>
 
-* [Additional reading on ChIP-Seq](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3053263/)
+  *<font color="#827e9c">Guillaume Bourque</font>*
+  
+  [Lecture](https://drive.google.com/open?id=1jJwEdloSWqKe2cz2Bpkw2UIxFIzS7gdc)   
+  
+  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module3_lab)
 
-* [Additional reading on Methylation analysis](http://www.ncbi.nlm.nih.gov/pubmed/22986265/) 
 
-### Do These Tutorials Before the Workshop:
+##  Module 4: Downstream Analyses and Integrative Tools <a id="module_4"></a>
 
-* [UNIX Bootcamp](http://rik.smith-unna.com/command_line_bootcamp/?id=9xnbkx6eaof)  
+  *<font color="#827e9c">David Bujold</font>*
+  
+  [Lecture](https://drive.google.com/open?id=1ajoKOdHfX5Cs5KTXscLY9_mCq5EE7qY2)  
+  
+  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module4_lab)
 
-* [Unix cheat sheet](http://www.rain.org/~mkummel/unix.html)
+***
 
-* [IGV Tutorial](https://bioinformaticsdotca.github.io/BiCG_2017_module2_igv): Review how to use IGV Genome Browser if you have not used this tool before.
+Thank you for attending the Exploratory Analysis of Biological Data using R workshop! Help us make this workshop better by filling out [our survey]().
 
-* [UCSC Genome Browser tutorial](http://www.ncbi.nlm.nih.gov/pubmed/18514479)
-
-* [FastQC Introduction and examples](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)  
-
-Please note that these instructions may change prior to the workshop.  
+***
