@@ -1,11 +1,11 @@
 ---
 layout: tutorial_page
-permalink: /epigenomics_2017_module2_lab
+permalink: /epigenomics_2018_module2_lab
 title: Epigenomics Lab 2
 header1: Workshop Pages for Students
-header2: Epigenomic Data Analysis 2017 Module 2 Lab
+header2: Epigenomic Data Analysis 2018 Module 2 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/epigenomics_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2018
 ---
 
 # Module 2 Lab: ChIP-Seq Alignment, Peak Calling (Enrichment Regions Detection), and Visualisation
