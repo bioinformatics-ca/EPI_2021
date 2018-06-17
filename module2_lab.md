@@ -15,6 +15,10 @@ By Misha Bilenky
 1. Set up some useful variables etc...
 ```
 source /home/partage/epigenomics/chip-seq/setup.sh
+
+see 
+**** setting useful stuff
+on the screen if ll went ok.
 ```
 you can see what variables we defined by
 ```
