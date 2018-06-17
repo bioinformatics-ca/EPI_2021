@@ -24,8 +24,8 @@ you can see what variables we defined by
 ```
 less /home/partage/epigenomics/chip-seq/setup.sh
 ```
-2. Create your personal working directory
-[for example i create my own working spase:
+2. Create your personal working directory;
+For example, I create my own working space:
 
 ```
 out=/home/partage/epigenomics/chip-seq/H1test
@@ -36,16 +36,21 @@ We will perform alignment of small fastq file (H1 cells, H3K27ac ChIP-seq) to th
 
 Fastq file is located in "/home/partage/epigenomics/chip-seq/H1/data/H3K27ac"
 ```
-less $H1data/H3K27ac/H3K27ac.H1.fastq.gz
+echo "$H1data"
+ls -l $H1data/H3K27ac/H3K27ac.H1.fastq.gz
 ```
 It is a very small region of genome on chr3
 ~50K reads.
 
 ```
-less $H1data/H3K27ac/H3K27ac.H1.fastq.gz
+less $H1data/H3K27ac/H3K27ac.H1.fastq.gz | head -40
 ```
 
 3. Human genome is stored in the variable
+```
+echo $hg19
+ls -l $hg19
+```
 ```
 less $hg19/Homo_sapiens.hg19.fa | more
 ```
