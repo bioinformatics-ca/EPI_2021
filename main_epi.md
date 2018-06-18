@@ -45,6 +45,8 @@ The full course notes are available as a [single PDF](https://drive.google.com/o
   
   [Lecture](https://drive.google.com/open?id=1ksc3itcHoQsx2XKc6tCMspSO4KmasN0z)  
   
+  [Recording](https://www.youtube.com/watch?v=i_J0pF-9DSY)
+  
   [Introduction to Compute Canada](https://drive.google.com/open?id=10VxoWJI7MJuDkdzFDQ8ikPxixFXjG9Bc)  
   
   [Using the Compute Canada HPC](https://bioinformaticsdotca.github.io/epigenomics_2018_hpc_2018)  
