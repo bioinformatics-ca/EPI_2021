@@ -73,7 +73,7 @@ javac 1.7.0_60-ea
 
 
 ### Using a bash script
-You can specify a bash script to launch multiple compute jobs directly from the command line, like the ```testjob.sh``` script in this example:
+You can specify a bash script to launch multiple compute jobs directly from the command line, like the ```testjob.sh``` script in this **example** :
 ```
 #!/bin/bash
 
@@ -86,6 +86,8 @@ Here, we load the bowtie2 and bismark modules, and then launch the ```bismark_ge
 
 
 ## Downloading a file from the workshop server to your computer
+
+**Note that these are example commands and shouldn't be run**
 
 #### Linux/Mac
 Use the following from a **local** command line session:
