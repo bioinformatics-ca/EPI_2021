@@ -23,6 +23,14 @@ We are using Google Classroom for discussion. Join the Class at https://classroo
 
 The full course notes are available as a [single PDF](https://drive.google.com/open?id=1LgidnXsoguj_Y-XaN1w0VhGk0WSYEveG).  
 
+***
+
+# Class photo
+
+<img src="https://github.com/bioinformaticsdotca/Epigenomics_2018/blob/master/IMG_0250.JPG?raw=true" alt="img" width="750" />
+
+***
+
 # Day 1 <a id="day1"></a>
 
 ##  Welcome <a id="welcome"></a>
