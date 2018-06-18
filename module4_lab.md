@@ -73,7 +73,7 @@ cd ~/module4
 
 * Only these categories will now get displayed in the grid. Select the following grid cells:
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_muscle_h3k27ac.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_portal_muscle_h3k27ac.png)
 
 
 #### Visualizing the tracks
