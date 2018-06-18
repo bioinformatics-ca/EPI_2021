@@ -34,7 +34,7 @@ cd $out
 ```
 We will perform alignment of small fastq file (H1 cells, H3K27ac ChIP-seq) to the human reference hg19
 
-Fastq file is located in "/home/partage/epigenomics/chip-seq/H1/data/H3K27ac"
+Fastq file is located in `/home/partage/epigenomics/chip-seq/H1/data/H3K27ac`  
 ```
 echo "$H1data"
 ls -l $H1data/H3K27ac/H3K27ac.H1.fastq.gz
@@ -54,9 +54,10 @@ ls -l $hg19
 ```
 less $hg19/Homo_sapiens.hg19.fa | head -1
 ```
-we see first chromosome.
+we see first chromosome.  
 To see what are sequence names (line starting with ">") you can use, e.g. command:
-less $hg19/Homo_sapiens.hg19.fa | awk '/>/' 
+
+`less $hg19/Homo_sapiens.hg19.fa | awk '/>/' `
 
 To see the human genome sequence:
 ```
@@ -64,7 +65,7 @@ less $hg19/Homo_sapiens.hg19.fa | head -250
 ```
 Sequence starts with a stretch of'NNN..' at the begining and then DNA letters in lower (masked) and upper case.
 
-4. BWA: alignment.
+4. BWA: alignment.  
 Lets check that we have bwa installed
 ```
 which bwa
@@ -76,7 +77,7 @@ Run first step, "bwa aln"
 bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > H3K27ac.H1.sai
 ```
 
-small delay at the start as genome was beeing loaded...
+small delay at the start as genome was beeing loaded...  
 We should see a .sai file
 ```
 ls -l
@@ -85,8 +86,8 @@ The .sai file is an intermediate file containing the suffix array indexes. Such 
 
 NOTE: if we align data from pair-end experiment we need to do alignment of both read1 and read2
 
-bwa aln <genome> read1.fastq > read1.sai
-bwa aln <genome> read1.fastq > read2.sai
+bwa aln <genome> read1.fastq > read1.sai  
+bwa aln <genome> read1.fastq > read2.sai  
 
 5. BWA: translation of suffix index file into SAM
 ```
@@ -98,7 +99,7 @@ ls -l
 more H3K27ac.H1.sam | head -200
 ```
 
-6. Now using "samtools" to manipulate SAM file
+6. Now using "samtools" to manipulate SAM file  
 
 First see that you can easily get samtools help:
 ```
@@ -129,7 +130,7 @@ You will see on the screen something like
 ```
 You see that "BAM" file is ~4-5 times smaller than "SAM"
 
-7. Lets look into alignment file:
+7. Lets look into alignment file:  
 File has a header (use "-H" flag)
 ```
 samtools view -H H3K27ac.H1.sorted.bam | more
@@ -144,52 +145,55 @@ samtools view H3K27ac.H1.sorted.bam | head
 ```
 samtools view H3K27ac.H1.sorted.bam | wc -l
 ```
-49990
+49990  
 
 Filtering unaligned reads:
 ```
 samtools view -F 4 H3K27ac.H1.sorted.bam | wc -l
 ```
-31555
+31555  
 
 Now filtering on mapping quality:
 ```
 samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | wc -l
 ```
-27735
+27735  
 Aligned and filtered reads containing "TATA" sequence:
 ```
 samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATA | wc -l
 ```
-2178
+2178  
 Longer "TATAA" sequence:
 ```
 samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATAA | wc -l
 ```
 718
 
-9. Marking duplicated reads
+9. Marking duplicated reads  
+
 ```
 echo "$picard"
 
 java -jar $picard/MarkDuplicates.jar I=H3K27ac.H1.sorted.bam O=H3K27ac.H1.sorted.dupsMarked.bam M=dups AS=true VALIDATION_STRINGENCY=LENIENT QUIET=true
 ```
+
 You should have H3K27ac.H1.sorted.dupsMarked.bam file in your directory.
+
 ```
 samtools view -F 1028 -q 5 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
-25902
+25902  
 
 Useful "samtools" option (showing flag in the user friendly format) [ also remeber useful website:
 https://broadinstitute.github.io/picard/explain-flags.html]
 ```
 samtools view -X  H3K27ac.H1.sorted.dupsMarked.bam | more
 ```
-shows second field ("SAM flag") in a human readable format.
+shows second field ("SAM flag") in a human readable format.  
 
-10. Lets count reads aligned to (+) and (-) strands. Reverse strand flag is '16': 
-"-f 16" - accept (-) only
-"-F 16" - exclude (-) strand  [accept (+) strand only]
+10. Lets count reads aligned to (+) and (-) strands. Reverse strand flag is '16':   
+"-f 16" - accept (-) only  
+"-F 16" - exclude (-) strand  [accept (+) strand only]  
 ```
 samtools view -X -F 20 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
@@ -197,9 +201,9 @@ samtools view -X -F 20 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
 samtools view -X -f16 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
-15560
+15560  
 
-Looks very reasonable: counts of (+) and (-) reads are very close
+Looks very reasonable: counts of (+) and (-) reads are very close  
 
 11. BAM file statistics:
 ```
@@ -253,40 +257,40 @@ Gives the same info as samtools. In "sambamba" we can use multi-threading by add
 ```
 samtools index H3K27ac.H1.sorted.dupsMarked.bam
 ```
-(or "sambamba index")
+(or "sambamba index")  
 
-Now we ask some interesting questions:
+Now we ask some interesting questions:  
 
-How may H3K27ac reads fall into promoter of a gene? (TSS+/-2Kb)
+How may H3K27ac reads fall into promoter of a gene? (TSS+/-2Kb)  
 
-"TCAIM" gene  (T_cell_activation_inhibitor_mitochondrial), location chr3:44,379,611-44,401,294, (+) strand
+"TCAIM" gene  (T_cell_activation_inhibitor_mitochondrial), location chr3:44,379,611-44,401,294, (+) strand  
 
-TSS+/-2Kb (take start coordinate +2000 and -2000 region)
+TSS+/-2Kb (take start coordinate +2000 and -2000 region)  
 
 chr3:44377611-44381611
 ```
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44377611-44381611 | wc -l
 ```
-431
+431  
 
-We just attached region's coordinates at the end of the "samtools view"command.
-There is definetely some ChIP-seq signal.
+We just attached region's coordinates at the end of the "samtools view"command.  
+There is definetely some ChIP-seq signal.  
 
-Another gene just upstream 
+Another gene just upstream   
 
-TOPAZ1, location chr3:44,283,378-44,373,590 
+TOPAZ1, location chr3:44,283,378-44,373,590   
 
-TSS+/-2Kb:
+TSS+/-2Kb:  
 
-chr3:44281378-44285378
+chr3:44281378-44285378  
 ```
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44281378-44285378 | wc -l
 ```
-30
+30  
 
-Much less reads in the promoter of this gene...
+Much less reads in the promoter of this gene...  
 
-... and some random 4Kb regions
+... and some random 4Kb regions  
 ```
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44271378-44275378 | wc -l
 ```
@@ -300,21 +304,21 @@ Thus we can conclude that we see two genes - one has a strong H3K27ac signal and
 
 We can define a file containing locations (e.g. regions)
 
-chr3:44377611-44381611
+chr3:44377611-44381611  
 
-chr3:44281378-44285378
+chr3:44281378-44285378  
 
-chr3:44271378-44275378
+chr3:44271378-44275378  
 
-chr3:44261378-44265378
+chr3:44261378-44265378  
 
-and see number of reads falling into all those regions
+and see number of reads falling into all those regions  
 
-13. Visualization @ UCSC, generating WIG file.
-Filtering:
-1. accepting only reads qith mapping quality >5 "-q 5"
-2. collapsing duplicated reads (flag 1024) and rejecting unmapped reads (flag 4) -F 1024+4 -->"-F 1028" 
-3. Using CiP-seq single end option of BAM2WIG with directionl read extension by 150bp: "-cs -x 150"
+13. Visualization @ UCSC, generating WIG file.   
+Filtering:    
+1. accepting only reads qith mapping quality >5 "-q 5"    
+2. collapsing duplicated reads (flag 1024) and rejecting unmapped reads (flag 4) -F 1024+4 -->"-F 1028"     
+3. Using CiP-seq single end option of BAM2WIG with directionl read extension by 150bp: "-cs -x 150"    
 
 ```
 samtools=/cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools

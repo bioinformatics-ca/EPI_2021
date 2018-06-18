@@ -68,6 +68,10 @@ iPSC_1.1.fastq	iPSC_1.2.fastq	iPSC_2.1.fastq	iPSC_2.2.fastq
 
 *What do the ".1" and ".2" in the file names mean?*
 
+### Before you start the processing, what should you do?
+
+Can you do it yourself without instructions?
+
 ### Map using bismark
 We will now process and map the reads using Bismark.
 
