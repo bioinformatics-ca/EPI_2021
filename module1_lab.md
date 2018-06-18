@@ -55,7 +55,7 @@ module load mugqic/java mugqic/fastqc
 
 ##### Copy locally the FASTQ file that we will need for our FastQC analysis
 ```
-cp /home/partage/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
+cp /home/partage/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz .
 ```
 
 ##### Check files
@@ -85,16 +85,15 @@ H3K27ac.H1_fastqc.html	H3K27ac.H1_fastqc.zip  H3K27ac.H1.fastq.gz
 ```
 
 #####  Download the results to your local computer
+From your **local computer**:
+
 ```
 scp class99@workshop103.ccs.usherbrooke.ca:/home/class99/module1/H3K27ac.H1_fastqc.html .
 ```
 
 #####  Open the downloaded file in a web browser
 
-Open the folder and then double-click the file 
-```
-open .
-```
+Open the folder and then double-click the file you just downloaded.
 
 Or directly from the command line using a command such as
 ```
