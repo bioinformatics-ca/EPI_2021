@@ -52,8 +52,17 @@ echo $hg19
 ls -l $hg19
 ```
 ```
-less $hg19/Homo_sapiens.hg19.fa | more
+less $hg19/Homo_sapiens.hg19.fa | head -1
 ```
+we see first chromosome.
+To see what are sequence names (line starting with ">") you can use, e.g. command:
+less $hg19/Homo_sapiens.hg19.fa | awk '/>/' 
+
+To see the human genome sequence:
+```
+less $hg19/Homo_sapiens.hg19.fa | head -250
+```
+Sequence starts with a stretch of'NNN..' at the begining and then DNA letters in lower (masked) and upper case.
 
 4. BWA: alignment.
 Lets check that we have bwa installed
@@ -64,6 +73,8 @@ bwa
 
 Run first step, "bwa aln"
 ```
+mkidr -p test
+cd test
 bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > H3K27ac.H1.sai
 ```
 
@@ -86,7 +97,7 @@ bwa samse -f H3K27ac.H1.sam $hg19/Homo_sapiens.hg19.fa H3K27ac.H1.sai $H1data/H3
 See that sam file is there
 ```
 ls -l
-less H3K27ac.H1.sam
+more H3K27ac.H1.sam | head -200
 ```
 
 6. Now using "samtools" to manipulate SAM file
