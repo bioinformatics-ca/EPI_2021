@@ -34,7 +34,7 @@ cd $out
 ```
 We will perform alignment of small fastq file (H1 cells, H3K27ac ChIP-seq) to the human reference hg19
 
-Fastq file is located in "/home/partage/epigenomics/chip-seq/H1/data/H3K27ac"
+Fastq file is located in `/home/partage/epigenomics/chip-seq/H1/data/H3K27ac`  
 ```
 echo "$H1data"
 ls -l $H1data/H3K27ac/H3K27ac.H1.fastq.gz
@@ -56,7 +56,8 @@ less $hg19/Homo_sapiens.hg19.fa | head -1
 ```
 we see first chromosome.
 To see what are sequence names (line starting with ">") you can use, e.g. command:
-less $hg19/Homo_sapiens.hg19.fa | awk '/>/' 
+
+`less $hg19/Homo_sapiens.hg19.fa | awk '/>/' `
 
 To see the human genome sequence:
 ```
@@ -169,12 +170,15 @@ samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATAA | wc -l
 718
 
 9. Marking duplicated reads
+
 ```
 echo "$picard"
 
 java -jar $picard/MarkDuplicates.jar I=H3K27ac.H1.sorted.bam O=H3K27ac.H1.sorted.dupsMarked.bam M=dups AS=true VALIDATION_STRINGENCY=LENIENT QUIET=true
 ```
+
 You should have H3K27ac.H1.sorted.dupsMarked.bam file in your directory.
+
 ```
 samtools view -F 1028 -q 5 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
@@ -310,11 +314,11 @@ chr3:44261378-44265378
 
 and see number of reads falling into all those regions
 
-13. Visualization @ UCSC, generating WIG file.
-Filtering:
-1. accepting only reads qith mapping quality >5 "-q 5"
-2. collapsing duplicated reads (flag 1024) and rejecting unmapped reads (flag 4) -F 1024+4 -->"-F 1028" 
-3. Using CiP-seq single end option of BAM2WIG with directionl read extension by 150bp: "-cs -x 150"
+13. Visualization @ UCSC, generating WIG file.  
+Filtering:  
+1. accepting only reads qith mapping quality >5 "-q 5"  
+2. collapsing duplicated reads (flag 1024) and rejecting unmapped reads (flag 4) -F 1024+4 -->"-F 1028"   
+3. Using CiP-seq single end option of BAM2WIG with directionl read extension by 150bp: "-cs -x 150"  
 
 ```
 samtools=/cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
