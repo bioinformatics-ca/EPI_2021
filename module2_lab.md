@@ -73,8 +73,6 @@ bwa
 
 Run first step, "bwa aln"
 ```
-mkidr -p test
-cd test
 bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > H3K27ac.H1.sai
 ```
 
@@ -102,6 +100,12 @@ more H3K27ac.H1.sam | head -200
 
 6. Now using "samtools" to manipulate SAM file
 
+First see that you can easily get samtools help:
+```
+samtools
+samtools view
+```
+
 Convert into binary BAM file:
 ```
 samtools view -Sb H3K27ac.H1.sam > H3K27ac.H1.bam
@@ -116,10 +120,17 @@ Check:
 ``` 
 ls -lh
 ```
+You will see on the screen something like
+```
+-rw-r--r-- 1 stud02 abcd 2.1M Jun 17 20:43 H3K27ac.H1.bam
+-rw-r--r-- 1 stud02 abcd 1.8M Jun 17 20:05 H3K27ac.H1.sai
+-rw-r--r-- 1 stud02 abcd 7.1M Jun 17 20:06 H3K27ac.H1.sam
+-rw-r--r-- 1 stud02 abcd 2.1M Jun 17 20:43 H3K27ac.H1.sorted.bam
+```
 You see that "BAM" file is ~4-5 times smaller than "SAM"
 
 7. Lets look into alignment file:
-File has a header
+File has a header (use "-H" flag)
 ```
 samtools view -H H3K27ac.H1.sorted.bam | more
 ```
@@ -129,23 +140,29 @@ samtools view H3K27ac.H1.sorted.bam | head
 ```
 [all fields we discussed]
 
-8. Using BAM file we can obtain useful informtion just using "samtools"
+8. Using BAM file we can obtain useful informtion just using "samtools" and counting number of lines:
 ```
 samtools view H3K27ac.H1.sorted.bam | wc -l
 ```
 49990
+
+Filtering unaligned reads:
 ```
 samtools view -F 4 H3K27ac.H1.sorted.bam | wc -l
 ```
 31555
+
+Now filtering on mapping quality:
 ```
 samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | wc -l
 ```
 27735
+Aligned and filtered reads containing "TATA" sequence:
 ```
 samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATA | wc -l
 ```
 2178
+Longer "TATAA" sequence:
 ```
 samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATAA | wc -l
 ```
@@ -153,21 +170,26 @@ samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATAA | wc -l
 
 9. Marking duplicated reads
 ```
+echo "$picard"
+
 java -jar $picard/MarkDuplicates.jar I=H3K27ac.H1.sorted.bam O=H3K27ac.H1.sorted.dupsMarked.bam M=dups AS=true VALIDATION_STRINGENCY=LENIENT QUIET=true
 ```
-
+You should have H3K27ac.H1.sorted.dupsMarked.bam file in your directory.
 ```
 samtools view -F 1028 -q 5 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
 25902
 
-Useful "samtools" option
+Useful "samtools" option (showing flag in the user friendly format) [ also remeber useful website:
+https://broadinstitute.github.io/picard/explain-flags.html]
 ```
 samtools view -X  H3K27ac.H1.sorted.dupsMarked.bam | more
 ```
 shows second field ("SAM flag") in a human readable format.
 
-10. Lets count reads aligned to (+) and (-) strands
+10. Lets count reads aligned to (+) and (-) strands. Reverse strand flag is '16': 
+"-f 16" - accept (-) only
+"-F 16" - exclude (-) strand  [accept (+) strand only]
 ```
 samtools view -X -F 20 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
@@ -177,7 +199,7 @@ samtools view -X -f16 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
 ```
 15560
 
-Looks ver reasonable: numbers of (+) and (-) reads are very close
+Looks very reasonable: counts of (+) and (-) reads are very close
 
 11. BAM file statistics:
 ```
@@ -203,18 +225,43 @@ you should see alignments file details:
 0 + 0 with mate mapped to a different chr (mapQ>=5)
 ```
 
+Lest do the same with "sambamba". Type
+```
+sambamba flagstat
+```
+to see help.
+```
+sambamba flagstat H3K27ac.H1.sorted.dupsMarked.bam 
+
+49990 + 0 in total (QC-passed reads + QC-failed reads)
+0 + 0 secondary
+0 + 0 supplementary
+1854 + 0 duplicates
+31555 + 0 mapped (63.12%:N/A)
+0 + 0 paired in sequencing
+0 + 0 read1
+0 + 0 read2
+0 + 0 properly paired (N/A:N/A)
+0 + 0 with itself and mate mapped
+0 + 0 singletons (N/A:N/A)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+Gives the same info as samtools. In "sambamba" we can use multi-threading by adding "-t <n-threads>" flag which is significantly speeds up the execution.
+
 12. Indenxing BAM file
 ```
 samtools index H3K27ac.H1.sorted.dupsMarked.bam
 ```
+(or "sambamba index")
 
 Now we ask some interesting questions:
 
 How may H3K27ac reads fall into promoter of a gene? (TSS+/-2Kb)
 
-TCAIM gene, location chr3:44,379,611-44,401,294 
+"TCAIM" gene  (T_cell_activation_inhibitor_mitochondrial), location chr3:44,379,611-44,401,294, (+) strand
 
-TSS+/-2Kb:
+TSS+/-2Kb (take start coordinate +2000 and -2000 region)
 
 chr3:44377611-44381611
 ```
@@ -263,10 +310,15 @@ chr3:44261378-44265378
 
 and see number of reads falling into all those regions
 
-13. Visualization @ UCSC, generating WIG file
+13. Visualization @ UCSC, generating WIG file.
+Filtering:
+1. accepting only reads qith mapping quality >5 "-q 5"
+2. collapsing duplicated reads (flag 1024) and rejecting unmapped reads (flag 4) -F 1024+4 -->"-F 1028" 
+3. Using CiP-seq single end option of BAM2WIG with directionl read extension by 150bp: "-cs -x 150"
 
 ```
-java -jar -Xmx2G $bin/BAM2WIG.jar -bamFile H3K27ac.H1.sorted.dupsMarked.bam -out $out -q 5 -F 1028 -cs -x 150 -samtools /cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
+samtools=/cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
+java -jar -Xmx2G $bin/BAM2WIG.jar -bamFile H3K27ac.H1.sorted.dupsMarked.bam -out $out -q 5 -F 1028 -cs -x 150 -samtools $samtools
 ```
 
 what you see on the screen:
@@ -292,7 +344,7 @@ Reads: total=25902
 14. Check the WIG file
 
 ```
-more H3K27ac.H1.sorted.dupsMarked.q5.F1028.SET_150.wig.gz
+less H3K27ac.H1.sorted.dupsMarked.q5.F1028.SET_150.wig.gz
 ```
 
 
