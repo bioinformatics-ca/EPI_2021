@@ -78,7 +78,7 @@ cd ~/module4
 
 #### Visualizing the tracks
 
-* Select "Visualize in Genome Browser"
+* Select "Visualize" for the UCSC Genome Browser
     * You can see that the datasets are being displayed at a mirror of the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_fullTrackView.png)
@@ -100,7 +100,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", the first 6 columns.
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_roadmap_chipseq.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_portal_roadmap_chipseq.png)
 
 * At the bottom of the grid, click on the button "Correlate datasets".
 
