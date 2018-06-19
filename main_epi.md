@@ -91,6 +91,6 @@ The full course notes are available as a [single PDF](https://drive.google.com/o
 
 ***
 
-Thank you for attending the Exploratory Analysis of Biological Data using R workshop! Help us make this workshop better by filling out [our survey]().
+Thank you for attending the Exploratory Analysis of Biological Data using R workshop! Help us make this workshop better by filling out [our survey](https://docs.google.com/forms/d/e/1FAIpQLSf2VyVtIk5rMUO8fXrNLSEpeZY5S4qcrulZo_diDoi5c-FMYA/viewform?usp=sf_link).
 
 ***
