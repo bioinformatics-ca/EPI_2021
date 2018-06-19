@@ -104,7 +104,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * At the bottom of the grid, click on the button "Correlate datasets".
 
-* You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view at the upper right corner of the popup.
+* You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view with the buttons at the lower right corner of the popup.
 
 <img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_portal_clusteringPerMark.png" alt="Region" width="750" />
 
