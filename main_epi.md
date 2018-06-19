@@ -60,6 +60,8 @@ The full course notes are available as a [single PDF](https://drive.google.com/o
   
   [Lecture](https://drive.google.com/open?id=1X6oxur0zmnPpulSCi-cwpZEdEqAVkJw0)   
   
+  [Recording](https://www.youtube.com/watch?v=XVIP_M5qEGw&list=PL3izGL6oi0S_tm7_EDGWrToDLewnXyfs5&t=0s&index=3)
+  
   [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module2_lab)  
   
   [Lab practical Using MACS](http://bioinformaticsdotca.github.io/epigenomics_2018_module2b_lab)  
