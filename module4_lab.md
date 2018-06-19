@@ -263,6 +263,8 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 
 <img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png" alt="Region" width="750" />
 
+Bonus question: Why is your result slightly different from the screenshot?
+
 ### Go back to your HOMER results
 
 * Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
