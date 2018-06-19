@@ -142,3 +142,12 @@ Total number of H3K4me3 peaks genome wide is
 [stud02@workshop103 macs2]$ wc -l H3K4me3.H1_peaks.narrowPeak 
 44679 H3K4me3.H1_peaks.narrowPeak
 ```
+
+Using 'awk' we can count number of bases in enriched peaks genome wide:
+```
+[stud02@workshop103 macs2]$ less H3K4me3.H1_peaks.narrowPeak | awk '{s=s+$3-$2+1} END{print s}'
+41872307
+```
+This is approximatly ~1.6% of mappable genome 41872307/2700000000.
+
+
