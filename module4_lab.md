@@ -71,7 +71,7 @@ cd ~/module4
 
 * Go back to the Overview page, and select the following categories of datasets: "Histone" for the "Muscle" cell type.
 
-* Only these categories will now get displayed in the grid. Select the following grid cells:
+* Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cells:
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_portal_muscle_h3k27ac.png)
 
