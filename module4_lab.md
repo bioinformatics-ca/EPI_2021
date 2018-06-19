@@ -146,8 +146,8 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 <img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_HOMER_selectPeaksTrack.png" alt="Region" width="750" />
 
 
-* Get the URL to this track by clicking on the "Download tracks" button at the bottom of the grid: ```peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb```
-The URL should be ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
+* You can get the URL to the track you want by clicking on the "Download tracks" button at the bottom of the grid.
+Here, we're interested in ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
 * Open your Mammouth (Compute Canada) terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
 ```
