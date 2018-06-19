@@ -41,12 +41,12 @@ macs2 callpeak -t $signal -c $control -f BAM -g hs -n H3K4me3.H1.chr19 -B -q 0.0
 ```
 Parameters (see https://github.com/taoliu/MACS for more details)  
 
--t <treatment>  
--c <control>  
--f <input files format>  
--g < using human genome>  
--n <name>  
--B - generate output as a bedGraph  
+`-t` treatment  
+`-c` control  
+`-f` input files format  
+`-g`  using human genome  
+`-n` name  
+`-B` generate output as a bedGraph  
   
   
  That is what we see on the screen:  
