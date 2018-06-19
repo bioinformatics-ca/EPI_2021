@@ -100,7 +100,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", the first 6 columns.
 
-![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_portal_roadmap_chipseq.png)
+<img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/img/module4_2018_portal_roadmap_chipseq.png" alt="img" width="750" />
 
 * At the bottom of the grid, click on the button "Correlate datasets".
 
