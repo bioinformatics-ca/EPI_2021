@@ -209,6 +209,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 * Go to your module4 directory and create a place to put the material we will download.
 
 ```
+ssh lect99@workshop103.ccs.usherbrooke.ca
 cd ~/module4
 mkdir great
 cd great
