@@ -111,7 +111,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 * You can also use the correlation tool to assess whether datasets that are supposed to be similar actually are.
     * Close the correlation popup window with the top right "X" button.
     * Reset grid selection with the "Reset" button at the bottom of the grid.
-    * Click on the grid cell for cell type "B Cell" and assay "H3K27ac".
+    * Click on the grid cell for cell type "B Cell", under the "Blood" category, and assay "H3K27ac".
     * Click on "Correlate datasets".
     * One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
 
