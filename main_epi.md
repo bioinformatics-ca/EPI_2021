@@ -89,6 +89,8 @@ The full course notes are available as a [single PDF](https://drive.google.com/o
   
   [Lecture](https://drive.google.com/open?id=1ajoKOdHfX5Cs5KTXscLY9_mCq5EE7qY2)  
   
+  [Recording](https://www.youtube.com/watch?v=lb46rTEGycE&index=5&list=PL3izGL6oi0S_tm7_EDGWrToDLewnXyfs5)
+  
   [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module4_lab)
 
 ***
