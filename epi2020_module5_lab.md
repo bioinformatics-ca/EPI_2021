@@ -1,3 +1,14 @@
+---
+layout: tutorial_page
+permalink: /epi2020_module5_lab
+title: Epigenomics Lab 5
+header1: Workshop Pages for Students
+header2: Downstream analyses & integrative tools
+image: /site_images/CBW_Epigenome-data_icon.jpg
+home: https://bioinformaticsdotca.github.io/epigenomics_2020
+---
+
+
 # Module 5: Downstream analyses & integrative tools
 *by David Bujold, M.Sc.*
 
