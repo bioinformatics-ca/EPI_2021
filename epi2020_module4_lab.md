@@ -47,9 +47,9 @@ home: https://bioinformaticsdotca.github.io/epigenomics_2020
     3.3 [Find Differentially Methylated Regions](#r_dmr)
 
 ---
-
-## 1. Introduction 
 <a name="introduction"></a>
+## 1. Introduction 
+
 #### Description of the lab:
 This module will cover the basics of Whole Genome Bisulfite-Sequencing (WGBS) data analysis including data visualization in IGV.
 
@@ -66,9 +66,9 @@ Before you begin, make sure you have the following programs ready in your local 
 * IGV
 
 ---
-
-### 1.1 Connecting to the Secure Cloud
 <a name="connect"></a>
+### 1.1 Connecting to the Secure Cloud
+
 The easiest way to connect to the secure cloud is using `jupyterlab` through a web browser. To do that, open your browser and type `jupyter.cbw-oct-2020.calculquebec.cloud` in the URL field. Type your username and password in the appropriate fields. Then you should see a window like this: 
 
 <img src="JupyterLab_job.png" alt="JupyterLab Job" width="750" />
@@ -108,11 +108,11 @@ salloc -N 1 -n 2  --mem 7000
 
 
 ---
-
-## 2. Mapping Tutorial
 <a name="map_tutorial"></a> 
-### 2.1 Getting Started
+## 2. Mapping Tutorial
 <a name="getting_started"></a>
+### 2.1 Getting Started
+
 #####  Connect to the Calcul Quebec Secure Cloud
 
 Now that you have a terminal open in the Secure Cloud, please make sure that you have access to the required modules for this workshop. To do so, copy and paste the following commands into the terminal window: 
@@ -192,9 +192,9 @@ They represent the `read1` and `read2` of the paired end reads.
 </details> 
 
 ---
-
-### 2.2 Map Data using Bismark
  <a name="map_bismark"></a>
+### 2.2 Map Data using Bismark
+
 We will now process and map the reads using Bismark.
 
 #### Map the first dataset using Bismark
@@ -277,9 +277,9 @@ WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
 ```
 
 ---
-
-### 2.3 Repeat Alignment for All Datasets
 <a name="repeat"></a>
+### 2.3 Repeat Alignment for All Datasets
+
 **How would you repeat the alignment with the other datasets?**
 
 <details>
@@ -319,9 +319,9 @@ samtools index WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam
 </details>
 
 ---
-
-### 2.4 Load Data and Explore using IGV
 <a name="load_igv"></a>
+### 2.4 Load Data and Explore using IGV
+
 While you wait for the previous steps to finish executing, it is a good idea to begin exploring the alignments. 
 
 #### Copy files to your local computer to view in IGV
@@ -381,9 +381,9 @@ You should see something like this:
 *Can you see any interesting patterns in the coverage?* 
 
 ---
-
-### 2.5 Generate Methylation Profiles
 <a name="methylation_profiles"></a>
+### 2.5 Generate Methylation Profiles
+
 So far we have only mapped the reads using Bismark. We can generate methylation profiles using the following command:
 
 ```{bash}
@@ -431,9 +431,9 @@ How about `chr19:45,637,715-45,657,380`?
 *How would you look for a CpG island using this view of the data?*
 
 ---
-
-## 3. Differential Methylation Analysis in MethylKit
 <a name="methylkit"></a>
+## 3. Differential Methylation Analysis in MethylKit
+
 The following section will use the Bioconductor package `methylKit` to do a differential methylation analysis. 
 You can do it in your own computer (if you have installed `R` and `methylKit`) or in the Secure Cloud. 
 
@@ -441,9 +441,9 @@ To install `methylKit` locally on your computer, make sure you have a recent ver
 follow the instructions in this [page](https://bioconductor.org/packages/release/bioc/html/methylKit.html). 
 
 ---
-
-### 3.1 Load R and MethylKit
 <a name="load_r"></a>
+### 3.1 Load R and MethylKit
+
 If you are working from the Secure Cloud, you will need to load a version of `R` that has the libraries we need. 
 To do that, run the following commands: 
 
@@ -478,9 +478,9 @@ library("methylKit")
 ```
 
 ---
-
-### 3.2 Import the Alignment Data into methylKit
 <a name="r_import"></a>
+### 3.2 Import the Alignment Data into methylKit
+
 #### Process Bismark Alignments
 To read the alignment data into `methylKit`, run the following command: 
 
