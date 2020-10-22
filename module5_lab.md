@@ -213,7 +213,7 @@ cd great
     * Use the **wget** command to download the text file that contains the list of tracks.
 
 ```
-wget -O trackList.txt https://epigenomesportal.ca/api/datahub/download?session=18731&format=text
+wget -O trackList.txt 'https://epigenomesportal.ca/api/datahub/download?session=18731&format=text'
 ```
 
 * Now download the tracks that are contained in this list.
