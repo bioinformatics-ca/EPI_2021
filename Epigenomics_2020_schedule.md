@@ -11,7 +11,7 @@ home: https://bioinformaticsdotca.github.io/epigenomics_2020
 
 | | **Day 1** | | **Day 2** |  
 | :---: | :---: | :---: | :---: |  
-| 10:00 | Welcome Presentation (Francis) | 10:00 | <font color="purple">Review of Module 3 (Edmund) | 
+| 10:00 | Welcome Presentation (Francis) | 10:00 | <font color="purple">Review of Module 3 (Edmund)</font>  | 
 | 10:20 | Introduction to Calcul Canada and login (Pierre-Olivier)| 10:30 | <font color="purple">Module 4: Introduction to WGBS and analysis (Guillaume)</font> |  
 | 10:50 | <font color="purple">Module 1: Introduction to ChIP sequencing and analysis (Martin)</font> | 12:00 | <font color="green">Break</font>	|  
 | 11:50 | <font color="green">Break</font>	| 12:30 | <font color="blue">Module 4 Lab (Jose Hector)</font>|  
