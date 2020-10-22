@@ -42,14 +42,14 @@ Comming soon
 
   *<font color="#827e9c">Martin Hirst</font>*
   
-  [Lecture](https://drive.google.com/file/d/1LjxVNx0hku13W9CbvJctG-_oVrRbWcZo/view?usp=sharing)  
+  [Lecture Module 1](https://drive.google.com/file/d/1LjxVNx0hku13W9CbvJctG-_oVrRbWcZo/view?usp=sharing)  
     
   
 ##  Module 2: ChIP-Seq Alignment, Peak Calling, and Visualization <a id="module_2"></a>
 
   *<font color="#827e9c">Martin Hirst</font>*
   
-  [Lecture](https://drive.google.com/file/d/1yxaGUEh4up81AJITpJ8e6mRrSJlAw4Uc/view?usp=sharing)   
+  [Lecture Module 2](https://drive.google.com/file/d/1yxaGUEh4up81AJITpJ8e6mRrSJlAw4Uc/view?usp=sharing)   
   
 ##  Module 3: Differential ChIP-seq Analysis <a id="module_3"></a> 
 
