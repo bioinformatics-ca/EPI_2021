@@ -37,9 +37,7 @@ Comming soon
   *<font color="#827e9c">Martin Hirst</font>*
   
   [Lecture](https://drive.google.com/file/d/1LjxVNx0hku13W9CbvJctG-_oVrRbWcZo/view?usp=sharing)  
-  
-  [Labs]()
-  
+    
   
 ##  Module 2: ChIP-Seq Alignment, Peak Calling, and Visualization <a id="module_2"></a>
 
@@ -47,8 +45,16 @@ Comming soon
   
   [Lecture](https://drive.google.com/file/d/1yxaGUEh4up81AJITpJ8e6mRrSJlAw4Uc/view?usp=sharing)   
   
+##  Module 3: Differential ChIP-seq Analysis <a id="module_3"></a> 
+
+*<font color="#827e9c"> Edmund </font>*
+ 
 
 ## Labs
+
+[Tutorial](https://www.dropbox.com/home/CBW_Epi_2020_Labs?preview=Epigenomics_2020_Lab_Modules1-3.html)
+
+[Files](https://drive.google.com/file/d/1EImLtKpIFlScNEPPFyUfu2xSqQpkbwRg/view?usp=sharing)
 
 
 # Day 2 <a id="day2"></a>
