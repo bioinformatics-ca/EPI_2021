@@ -41,7 +41,7 @@ Comming soon
   
 ##  Module 2: ChIP-Seq Alignment, Peak Calling, and Visualization <a id="module_2"></a>
 
-  *<font color="#827e9c">Misha Bilenky</font>*
+  *<font color="#827e9c">Martin Hirst</font>*
   
   [Lecture](https://drive.google.com/file/d/1yxaGUEh4up81AJITpJ8e6mRrSJlAw4Uc/view?usp=sharing)   
   
