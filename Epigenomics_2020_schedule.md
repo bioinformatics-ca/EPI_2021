@@ -11,15 +11,15 @@ home: https://bioinformaticsdotca.github.io/epigenomics_2020
 
 | | **Day 1** | | **Day 2** |  
 | :---: | :---: | :---: | :---: |  
-| 10:00 | Welcome Presentation (Francis) | 10:00 | Review of Module 3 (Edmund) | 
-| 10:20 | Introduction to Calcul Canada and login (Pierre-Olivier)| 10:30 | Module 4: Introduction to WGBS and analysis (Guillaume) |  
-| 10:50 | Module 1: Introduction to ChIP sequencing and analysis (Martin) | 12:00 | Break |  
-| 11:50 | Break | 12:30 | Module 4 Lab (Jose Hector)|  
-| 12:10 | Module 1 Lab: ChIP-seq Aligment (Edmund & Martin)| 14:00 | Break |  
-| 13:40 | Break | 15:00 | Module 5:Downstream analyses and integrative tools (David) |  
-| 15:00 | Module 2: Peak calling and visualization (Martin)| 16:30 | Break |  
-| 16:00 | Break | 17:00 | Module 5 Lab (David) |  
-| 16:20 | Module 2 Lab : Peak calling (Edmund) | 18:00 | Survey and Closing Remarks |  
-| 18:25 | Break | | |  
-| 18:45 | Module 3: Differential ChIP-seq Analysis (Edmund) | | |
+| 10:00 | Welcome Presentation (Francis) | 10:00 | <font color="purple">Review of Module 3 (Edmund) | 
+| 10:20 | Introduction to Calcul Canada and login (Pierre-Olivier)| 10:30 | <font color="purple">Module 4: Introduction to WGBS and analysis (Guillaume)</font> |  
+| 10:50 | <font color="purple">Module 1: Introduction to ChIP sequencing and analysis (Martin)</font> | 12:00 | <font color="green">Break</font>	|  
+| 11:50 | <font color="green">Break</font>	| 12:30 | <font color="blue">Module 4 Lab (Jose Hector)</font>|  
+| 12:10 | <font color="blue">Module 1 Lab: ChIP-seq Aligment (Edmund & Martin)</font>| 14:00 | <font color="green">Break</font>	 |  
+| 13:40 | <font color="green">Break</font>	 | 15:00 | <font color="purple">Module 5:Downstream analyses and integrative tools (David)</font> |  
+| 15:00 | <font color="purple">Module 2: Peak calling and visualization (Martin)</font>| 16:30 | <font color="green">Break</font>	 |  
+| 16:00 | <font color="green">Break</font>	 | 17:00 | <font color="blue">Module 5 Lab (David)</font> |  
+| 16:20 | <font color="blue">Module 2 Lab : Peak calling (Edmund)</font> | 18:00 | Survey and Closing Remarks |  
+| 18:25 | <font color="green">Break</font>	 | | |  
+| 18:45 | <font color="blue">Module 3: Differential ChIP-seq Analysis (Edmund)</font> | | |
 | 20:00 | | | |  
