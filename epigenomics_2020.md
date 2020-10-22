@@ -69,7 +69,7 @@ Comming soon
   
 [Lecture Module4](https://drive.google.com/file/d/1GPQ_fzp5uxC85LPr1oLyYazLu9FFzKs6/view?usp=sharing)
  
-[labs Module4](https://bioinformaticsdotca.github.io/epi2020_module4_lab)
+[labs Module4](https://bioinformaticsdotca.github.io//epi2020_module4_lab)
  
 
 
@@ -79,7 +79,7 @@ Comming soon
   
 [Lecture Module5](https://drive.google.com/file/d/155C6swJH858JkmY4ILlC8hOkAKAAv6fe/view?usp=sharing)
 
-[labs Module5](https://bioinformaticsdotca.github.io/epi2020_module5_lab)
+[labs Module5](https://bioinformaticsdotca.github.io//epi2020_module5_lab)
 
 ***
 
