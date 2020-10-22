@@ -52,7 +52,7 @@ Comming soon
 
 ## Labs
 
-[Tutorial](https://www.dropbox.com/home/CBW_Epi_2020_Labs?preview=Epigenomics_2020_Lab_Modules1-3.html)
+[Tutorial](https://www.dropbox.com/s/5z4aicrs4mkp3rh/Epigenomics_2020_Lab_Modules1-3.html?dl=0)
 
 [Files](https://drive.google.com/file/d/1EImLtKpIFlScNEPPFyUfu2xSqQpkbwRg/view?usp=sharing)
 
