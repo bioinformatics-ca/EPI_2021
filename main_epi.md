@@ -38,6 +38,8 @@ Comming soon
   
   [Lecture](https://drive.google.com/file/d/1LjxVNx0hku13W9CbvJctG-_oVrRbWcZo/view?usp=sharing)  
   
+  [Labs]()
+  
   
 ##  Module 2: ChIP-Seq Alignment, Peak Calling, and Visualization <a id="module_2"></a>
 
