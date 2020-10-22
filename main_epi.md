@@ -31,6 +31,12 @@ Comming soon
 ##  Welcome <a id="welcome"></a>
 
   *<font color="#827e9c">Francis Ouellette </font>* 
+  
+##  Introduction to Calcul Canada <a id="welcome"></a>
+
+  *<font color="#827e9c">Pierre-Olivier Quirion</font>* 
+
+   [Presentation]( https://tinyurl.com/cbwcq0709)
 
 ##  Module 1: Introduction to ChIP Sequencing and Analysis <a id="module_1"></a>
 
@@ -52,9 +58,9 @@ Comming soon
 
 ## Labs
 
-[Tutorial](https://www.dropbox.com/s/5z4aicrs4mkp3rh/Epigenomics_2020_Lab_Modules1-3.html?dl=0)
+[Tutorial](https://drive.google.com/file/d/1ryxRfm5c-ChsWSsWrHP52ZSqKtZtrodA/view?usp=sharing)  
 
-[Files](https://drive.google.com/file/d/1EImLtKpIFlScNEPPFyUfu2xSqQpkbwRg/view?usp=sharing)
+
 
 
 # Day 2 <a id="day2"></a>
@@ -71,6 +77,9 @@ Comming soon
   
    Comming soon
 
+## Labs
+
+Comming soon
 ***
 
 
