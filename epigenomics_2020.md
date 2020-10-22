@@ -61,27 +61,25 @@ Comming soon
 [Tutorial](https://drive.google.com/file/d/1ryxRfm5c-ChsWSsWrHP52ZSqKtZtrodA/view?usp=sharing)  
 
 
-
-
 # Day 2 <a id="day2"></a>
 
 ##  Module 4: Introduction to WGBS and Analysis <a id="module_3"></a>
 
   *<font color="#827e9c">Guillaume Bourque</font>*
   
- Comming soon
+[Lecture Module4](https://drive.google.com/file/d/1GPQ_fzp5uxC85LPr1oLyYazLu9FFzKs6/view?usp=sharing)
+ 
+[labs Module4](https://bioinformaticsdotca.github.io//epi2020_module4_lab)
+ 
+
 
 ##  Module 5: Downstream Analyses and Integrative Tools <a id="module_4"></a>
 
   *<font color="#827e9c">David Bujold</font>*
   
-   Comming soon
+[Lecture Module5](https://drive.google.com/file/d/155C6swJH858JkmY4ILlC8hOkAKAAv6fe/view?usp=sharing)
 
-## Labs
-
-Comming soon
-***
-
-
+[labs Module5](https://bioinformaticsdotca.github.io//epi2020_module5_lab)
 
 ***
+

@@ -1,13 +1,14 @@
 ---
-title: "Whole Genome Bisulfite Sequencing"
-output:
-  html_document:
-    df_print: paged
-    keep_md: yes
-    css: genpipes.css
-    self_contained: yes
-  pdf_document: default
+layout: tutorial_page
+permalink: /epi2020_module4_lab
+title: Epigenomics Lab 4
+header1: Workshop Pages for Students
+header2: Whole Genome Bisulfite Sequencing
+image: /site_images/CBW_Epigenome-data_icon.jpg
+home: https://bioinformaticsdotca.github.io/epigenomics_2020
 ---
+
+-----------------------
 
 # Introduction to WGBS and Analysis 
 
@@ -46,8 +47,8 @@ output:
     3.3 [Find Differentially Methylated Regions](#r_dmr)
 
 ---
-
-## 1. Introduction {#introduction}
+<a name="introduction"></a>
+## 1. Introduction 
 
 #### Description of the lab:
 This module will cover the basics of Whole Genome Bisulfite-Sequencing (WGBS) data analysis including data visualization in IGV.
@@ -65,8 +66,8 @@ Before you begin, make sure you have the following programs ready in your local 
 * IGV
 
 ---
-
-### 1.1 Connecting to the Secure Cloud {#connect}
+<a name="connect"></a>
+### 1.1 Connecting to the Secure Cloud
 
 The easiest way to connect to the secure cloud is using `jupyterlab` through a web browser. To do that, open your browser and type `jupyter.cbw-oct-2020.calculquebec.cloud` in the URL field. Type your username and password in the appropriate fields. Then you should see a window like this: 
 
@@ -107,10 +108,10 @@ salloc -N 1 -n 2  --mem 7000
 
 
 ---
-
-## 2. Mapping Tutorial {#map_tutorial}
- 
-### 2.1 Getting Started {#getting_started}
+<a name="map_tutorial"></a> 
+## 2. Mapping Tutorial
+<a name="getting_started"></a>
+### 2.1 Getting Started
 
 #####  Connect to the Calcul Quebec Secure Cloud
 
@@ -191,8 +192,9 @@ They represent the `read1` and `read2` of the paired end reads.
 </details> 
 
 ---
+ <a name="map_bismark"></a>
+### 2.2 Map Data using Bismark
 
-### 2.2 Map Data using Bismark {#map_bismark}
 We will now process and map the reads using Bismark.
 
 #### Map the first dataset using Bismark
@@ -275,8 +277,8 @@ WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
 ```
 
 ---
-
-### 2.3 Repeat Alignment for All Datasets {#repeat}
+<a name="repeat"></a>
+### 2.3 Repeat Alignment for All Datasets
 
 **How would you repeat the alignment with the other datasets?**
 
@@ -317,8 +319,8 @@ samtools index WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam
 </details>
 
 ---
-
-### 2.4 Load Data and Explore using IGV {#load_igv}
+<a name="load_igv"></a>
+### 2.4 Load Data and Explore using IGV
 
 While you wait for the previous steps to finish executing, it is a good idea to begin exploring the alignments. 
 
@@ -379,8 +381,8 @@ You should see something like this:
 *Can you see any interesting patterns in the coverage?* 
 
 ---
-
-### 2.5 Generate Methylation Profiles {#methylation_profiles}
+<a name="methylation_profiles"></a>
+### 2.5 Generate Methylation Profiles
 
 So far we have only mapped the reads using Bismark. We can generate methylation profiles using the following command:
 
@@ -429,8 +431,9 @@ How about `chr19:45,637,715-45,657,380`?
 *How would you look for a CpG island using this view of the data?*
 
 ---
+<a name="methylkit"></a>
+## 3. Differential Methylation Analysis in MethylKit
 
-## 3. Differential Methylation Analysis in MethylKit {#methylkit}
 The following section will use the Bioconductor package `methylKit` to do a differential methylation analysis. 
 You can do it in your own computer (if you have installed `R` and `methylKit`) or in the Secure Cloud. 
 
@@ -438,8 +441,8 @@ To install `methylKit` locally on your computer, make sure you have a recent ver
 follow the instructions in this [page](https://bioconductor.org/packages/release/bioc/html/methylKit.html). 
 
 ---
-
-### 3.1 Load R and MethylKit {#load_r}
+<a name="load_r"></a>
+### 3.1 Load R and MethylKit
 
 If you are working from the Secure Cloud, you will need to load a version of `R` that has the libraries we need. 
 To do that, run the following commands: 
@@ -475,8 +478,8 @@ library("methylKit")
 ```
 
 ---
-
-### 3.2 Import the Alignment Data into methylKit {#r_import}
+<a name="r_import"></a>
+### 3.2 Import the Alignment Data into methylKit
 
 #### Process Bismark Alignments
 To read the alignment data into `methylKit`, run the following command: 
@@ -582,8 +585,8 @@ getMethylationStats(myobj[[2]],plot=FALSE,both.strands=FALSE)
 
 --- 
 
-### 3.3 Find Differentially Methylated Regions {#r_dmr}
-
+### 3.3 Find Differentially Methylated Regions
+<a name="r_dmr"></a>
 #### Merge Samples
 
 Before doing any additional analysis, `methylKit` needs to determine which methylated bases have sufficient coverage in all samples so they can be compared. To do that, the samples should be merged with the `unite()` function. This function has a parameter `destrand=` that is turned off by default. We will set the `destrand` option to `TRUE` which will merge the coverage of both strands. When doing your own analyses, be aware that for some kinds of methylation analyses (such as CpH methylation) results are strand-specific, so this option should be used carefully. 
