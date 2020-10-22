@@ -1,33 +1,28 @@
 ---
 layout: workshop_main_2day
-permalink: /epigenomics_2018
+permalink: /epigenomics_2020
 title: Epigenomic Data Analysis
 header1: Workshop Pages for Students
-header2: Epigenomic Data Analysis 2018
+header2: Epigenomic Data Analysis 2020
 image: /site_images/CBW_Epigenome-data_icon.jpg
 keywords: Align ChiP-Seq and WGBS sequence data to reference genome, integrative tools for epigenomic data sets
 description: Course providing an introduction to histone ChiP-Seq and WGBS data analysis followed by integrated tutorials demonstrating the use of open source ChiP-Seq and WGBS analysis packages. 
-instructors: Martin Hirst, Misha Bilenky, Guillaume Bourque, David Bujold
+instructors: Martin Hirst, Guillaume Bourque, David Bujold
 length: 2 days
 ---
 
 # Welcome <a id="welcome"></a>
 
-Welcome to Epigenomic Data Analysis 2018.  
+Welcome to Epigenomic Data Analysis 2020.  
 
-The course schedule can be found [here](https://bioinformaticsdotca.github.io/Epigenomics_2018_schedule).
+The course schedule can be found [here](https://bioinformaticsdotca.github.io/Epigenomics_2020_schedule).
 
-Pre-readings, pre-work, and laptop setup instructions can be found [here](https://bioinformaticsdotca.github.io/epigenomics_2018_prework).<a id="preworkshop"></a>  
-
-We are using Google Classroom for discussion. Join the Class at https://classroom.google.com, select the "+" symbol in the upper right corner, click on "Join Class" and enter the class code provided to you.
-
-The full course notes are available as a [single PDF](https://drive.google.com/open?id=1LgidnXsoguj_Y-XaN1w0VhGk0WSYEveG).  
 
 ***
 
 # Class photo
 
-<img src="https://github.com/bioinformaticsdotca/Epigenomics_2018/blob/master/IMG_0250.JPG?raw=true" alt="img" width="750" />
+Comming soon
 
 ***
 
@@ -35,66 +30,41 @@ The full course notes are available as a [single PDF](https://drive.google.com/o
 
 ##  Welcome <a id="welcome"></a>
 
-  *<font color="#827e9c">Ann Meyer</font>* 
-  
-  [Resources](https://drive.google.com/open?id=1ewMnAls8vD-EuWy3zCCi8CyT7pxD31Wb)  
+  *<font color="#827e9c">Francis Ouellette </font>* 
 
 ##  Module 1: Introduction to ChIP Sequencing and Analysis <a id="module_1"></a>
 
   *<font color="#827e9c">Martin Hirst</font>*
   
-  [Lecture](https://drive.google.com/open?id=1ksc3itcHoQsx2XKc6tCMspSO4KmasN0z)  
-  
-  [Recording](https://www.youtube.com/watch?v=i_J0pF-9DSY)
-  
-  [Introduction to Compute Canada](https://drive.google.com/open?id=10VxoWJI7MJuDkdzFDQ8ikPxixFXjG9Bc)  
-  
-  [Using the Compute Canada HPC](https://bioinformaticsdotca.github.io/epigenomics_2018_hpc_2018)  
-
-  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module1_lab)  
+  [Lecture](https://drive.google.com/file/d/1LjxVNx0hku13W9CbvJctG-_oVrRbWcZo/view?usp=sharing)  
   
   
 ##  Module 2: ChIP-Seq Alignment, Peak Calling, and Visualization <a id="module_2"></a>
 
   *<font color="#827e9c">Misha Bilenky</font>*
   
-  [Lecture](https://drive.google.com/open?id=1X6oxur0zmnPpulSCi-cwpZEdEqAVkJw0)   
+  [Lecture](https://drive.google.com/file/d/1yxaGUEh4up81AJITpJ8e6mRrSJlAw4Uc/view?usp=sharing)   
   
-  [Recording](https://www.youtube.com/watch?v=XVIP_M5qEGw&list=PL3izGL6oi0S_tm7_EDGWrToDLewnXyfs5&t=0s&index=3)
-  
-  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module2_lab)  
-  
-  [Lab practical Using MACS](http://bioinformaticsdotca.github.io/epigenomics_2018_module2b_lab)  
 
-## Integrated Assignment
+## Labs
 
-[Assignment link](http://bioinformaticsdotca.github.io/epigenomics_2018_integrated_assignment)  
 
 # Day 2 <a id="day2"></a>
 
-##  Module 3: Introduction to WGBS and Analysis <a id="module_3"></a>
+##  Module 4: Introduction to WGBS and Analysis <a id="module_3"></a>
 
   *<font color="#827e9c">Guillaume Bourque</font>*
   
-  [Lecture](https://drive.google.com/open?id=1jJwEdloSWqKe2cz2Bpkw2UIxFIzS7gdc)   
-  
-  [Recording](https://www.youtube.com/watch?v=zLeVltbur40)
-  
-  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module3_lab)
+ Comming soon
 
-
-##  Module 4: Downstream Analyses and Integrative Tools <a id="module_4"></a>
+##  Module 5: Downstream Analyses and Integrative Tools <a id="module_4"></a>
 
   *<font color="#827e9c">David Bujold</font>*
   
-  [Lecture](https://drive.google.com/open?id=1ajoKOdHfX5Cs5KTXscLY9_mCq5EE7qY2)  
-  
-  [Recording](https://www.youtube.com/watch?v=lb46rTEGycE&index=5&list=PL3izGL6oi0S_tm7_EDGWrToDLewnXyfs5)
-  
-  [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2018_module4_lab)
+   Comming soon
 
 ***
 
-Thank you for attending the Exploratory Analysis of Biological Data using R workshop! Help us make this workshop better by filling out [our survey](https://docs.google.com/forms/d/e/1FAIpQLSf2VyVtIk5rMUO8fXrNLSEpeZY5S4qcrulZo_diDoi5c-FMYA/viewform?usp=sf_link).
+
 
 ***
