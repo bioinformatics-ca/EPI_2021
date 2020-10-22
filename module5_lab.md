@@ -222,11 +222,11 @@ wget -O trackList.txt 'https://epigenomesportal.ca/api/datahub/download?session=
 wget -i trackList.txt
 ```
 
-* Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module. For this example, we will convert and use only one of the files, **24584.Blueprint.ERS255952.H3K27ac.peak_calls.bigBed**.
+* Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module.
 
 ```
 module load mugqic/ucsc/20140212
-bigBedToBed 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bigBed 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bed
+bigBedToBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bigBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed
 ```
 
 **Note:** If you're under Linux / Mac, you can also install the UCSC tools locally, as they are a useful set of tools to manipulate tracks data, without requiring so much processing power.
@@ -236,7 +236,8 @@ bigBedToBed 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bigBed 24584.Blueprint.
     * Take the 20000 first lines in the file with ```head -n20000```
 
 ```
-sort -R 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bed | head -n 20000 > 24584.Blueprint.ERS255952.H3K27ac.peak_calls.random_short.bed
+sort -R 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed
+head -n 20000 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
 ```
 
 * Download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.
@@ -248,14 +249,14 @@ scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/*.b
 * Load the GREAT website: [http://bejerano.stanford.edu/great/public/html/](http://bejerano.stanford.edu/great/public/html/)
 
 * Provide the following input to the GREAT interface:
-    * Assembly: **Human: GRCh37**
-    * Test regions: The randomized short version of the BED files you just downloaded. (24584.Blueprint.ERS255952.H3K27ac.peak_calls.random_short.bed)
+    * Assembly: **Human: GRCh38**
+    * Test regions: The randomized short version of the BED files you just downloaded. (58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed)
 
 * Submit the form.
 
 * In the results, for instance, you should obtain something like this for biological processes:
 
-<img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png" alt="Region" width="750" />
+![img](img/module5/GREAT_go_biological_process.png)
 
 Bonus question: Why is your result slightly different from the screenshot?
 
@@ -270,12 +271,6 @@ scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/
 Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
 ![img](img/module5/HOMER_denovoResult.png)
-
-If your job didn't complete yet, you can download the complete results from here instead:
-
-[Homer results](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/homer_output.zip)
-
-
 
 ### Galaxy
 
