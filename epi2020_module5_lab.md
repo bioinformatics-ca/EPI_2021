@@ -282,7 +282,7 @@ scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/
 
 Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_denovoResult.png?raw=true" alt="p10" width="750" />
+![img](img/module5/HOMER_results.png)
 
 
 ### Galaxy
