@@ -58,7 +58,7 @@ Comming soon
 
 ## Labs
 
-[Tutorial](https://drive.google.com/file/d/1ryxRfm5c-ChsWSsWrHP52ZSqKtZtrodA/view?usp=sharing)  
+[Tutorial](https://drive.google.com/file/d/18-LEfA8TAbitdZUs8vIXkQ5Fd_UASqmg/view?usp=sharing)  
 
 
 # Day 2 <a id="day2"></a>
