@@ -71,15 +71,15 @@ Before you begin, make sure you have the following programs ready in your local 
 
 The easiest way to connect to the secure cloud is using `jupyterlab` through a web browser. To do that, open your browser and type `jupyter.cbw-oct-2020.calculquebec.cloud` in the URL field. Type your username and password in the appropriate fields. Then you should see a window like this: 
 
-<img src="JupyterLab_job.png" alt="JupyterLab Job" width="750" />
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/JupyterLab_job.png" alt="JupyterLab Job" width="750" />
 
 Select the options shown in the image above (make sure you select `JupyterLab` as the **User Interface**). Once you do that you should see a window like this: 
 
-<img src="JupyterLab_launcher.png" alt="JupyterLab Launcher" width="750" />
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/JupyterLab_launcher.png" alt="JupyterLab Launcher" width="750" />
 
 Click on the `Terminal` button from the options presented. You should see a window like this:
 
-<img src="JupyterLab_terminal.png" alt="JupyterLab Terminal" width="750" />
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/JupyterLab_terminal.png" alt="JupyterLab Terminal" width="750" />
 
 ---
 
@@ -372,7 +372,7 @@ chr19:44,527,387-44,536,873
 
 You should see something like this:
 
-<img src="region2.png" alt="Region" width="750" />
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/region2.png" alt="Region" width="750" />
 
 *If it looks different, can you change the way the colors are displayed?*
 
@@ -420,7 +420,7 @@ Load all the downloaded files in IGV using `File -> Load from file`.
 
 At this point, if you load the region `chr19:44,527,387-44,536,873` you should see something like
 
-<img src="region2_full.png" alt="Region" width="750" />
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/region2_full.png" alt="Region" width="750" />
 
 This promoter looks to be hypomethylated. 
 
