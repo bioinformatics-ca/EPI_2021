@@ -234,6 +234,12 @@ wget -O trackList.txt 'https://epigenomesportal.ca/api/datahub/download?session=
 wget -i trackList.txt
 ```
 
+* To save some space within our Compute Canada workshop allocation, we will delete the signal file for now.
+
+```
+rm 58393.Blueprint.ERS1027405.H3K27ac.signal_unstranded.bigWig
+```
+
 * Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module.
 
 ```
@@ -252,10 +258,10 @@ sort -R 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed > 58394.Blueprint.ERS1
 head -n 20000 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
 ```
 
-* **From your local computer**, download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.
+* **From your local computer**, download the BED file `58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed` locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.
 
 ```
-scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/*.bed .
+scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed .
 ```
 
 * Load the GREAT website: [http://bejerano.stanford.edu/great/public/html/](http://bejerano.stanford.edu/great/public/html/)
@@ -263,6 +269,7 @@ scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/*.b
 * Provide the following input to the GREAT interface:
     * Assembly: **Human: GRCh38**
     * Test regions: The randomized short version of the BED files you just downloaded. (58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed)
+    * Leave the "Background regions" to its default value, "Whole Genome"
 
 * Submit the form.
 
@@ -274,18 +281,25 @@ Bonus question: Why is your result slightly different from the screenshot?
 
 ### Go back to your HOMER results
 
-* Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
+* Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualization. First we'll compress the results to a zip file.
 
 ```
-scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/output .
+cd ~/module5/homer/
+zip -r homer.zip output
 ```
 
-Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
+* Next, **from your laptop**, use the scp command or WinSCP to bring back the results folder.
+
+```
+scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/homer.zip .
+```
+
+* Unzip the file, and open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
 ![img](img/module5/HOMER_results.png)
 
 
-### Galaxy
+### Galaxy (optional: you can do this part on your own)
 
 We will now explore and learn how to use the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
 
