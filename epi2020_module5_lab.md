@@ -275,7 +275,7 @@ scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/583
 
 * In the results, for instance, you should obtain something like this for biological processes:
 
-![img](img/module5/GREAT_go_biological_process.png)
+ <img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_go_biological_process.png?raw=true" alt="p3" width="750" />   
 
 Bonus question: Why is your result slightly different from the screenshot?
 
@@ -296,8 +296,7 @@ scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/
 
 * Unzip the file, and open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
-![img](img/module5/HOMER_results.png)
-
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_results.png?raw=true" alt="p3" width="750" />
 
 ### Galaxy (optional: you can do this part on your own)
 
