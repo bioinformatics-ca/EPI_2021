@@ -23,12 +23,12 @@ We will now explore some of the tools that were covered in the lecture for modul
 
 * First, we will learn how to use the IHEC Data Portal's tools to fetch feature tracks of interest.
 * Second, we will explore ChIP-Seq peak prediction files (in bed format) to discover motifs using HOMER.
-* Third, we will use these datasets with the GREAT GO enrichment tool to do functions prediction.
+* Third, we will use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.
 * Last, we'll explore and launch a few jobs on the Galaxy web platform.
 
 ### Local software that we will use
 
-**You should already have an open connection to your Compute Canada session, either through JupyterLab, or through a terminal ssh session.** 
+**You should already have an open connection to Compute Canada, either through JupyterLab, or through an ssh terminal session.** 
 
 * A web browser
 * scp or WinSCP to transfer results from Compute Canada to your computer
@@ -68,18 +68,18 @@ cd ~/module5
 * You will get a grid with all available datasets for IHEC Core Assays, on the hg38 assembly.
     * You can filter out visible datasets in the grid using the filtering options at the right of the grid.
 
-* Go back to the Overview page (`Home` on the top menu), and select the following categories of datasets: "Histone" for the "Muscle" cell type, on the "hg19" reference genome. Click on `View selected`.
+* Go back to the Overview page (`Home` on the top menu), and select the following categories of datasets: On the "hg19" reference genome, "Histone" experiments for the "Muscle" cell type. Click on `View selected`.
 
 ![img](img/module5/portal_select_from_overview.png)
 
-* Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cells:
+* Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cell:
 
 ![img](img/module5/portal_muscle_h3k27ac.png)
 
 
 #### Visualizing the tracks
 
-* Click on the "Visualize" for the UCSC Genome Browser, at the bottom of the grid.
+* Click on the "Send" button for the UCSC Genome Browser, at the bottom of the grid.
 
 ![img](img/module5/portal_send_to_ucsc.png)
 
@@ -96,13 +96,15 @@ cd ~/module5
 #### Tracks correlation
 You can get a whole genome overview of the similarity of a group of tracks by using the Portal's correlation tool.
 
-* Back on the grid page, from the filters at the right of the grid, add back datasets for all tissues and all assay types. You can select all checkboxes at once by click on the top checkbox, next to "Category".
+* Back on the Data Grid tab of your browser, from the filters at the right of the grid, add back datasets for all tissues and all assay types. You can select all checkboxes at once by click on the top checkbox, next to "Category". Also remove non-core assays if it is selected.
 
 ![img](img/module5/portal_selectAllTissues.png)
 
 ![img](img/module5/portal_selectAllAssays.png)
 
-* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", the first 6 columns.
+![img](img/module5/portal_deselect_non_core_assays.png)
+
+* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", under the "Stromal" category. The first 6 columns should be selected.
 
 ![img](img/module5/portal_roadmap_chipseq.png)
 
@@ -137,38 +139,36 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 ![img](img/module5/HOMER_selecthg19.png)
 
-* In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays for ```ES Cells``` cell type.
+* In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays.
 
 ![img](img/module5/HOMER_showNonCoreAssays.png)
 
 ![img](img/module5/HOMER_showTFBS.png)
 
-![img](img/module5/HOMER_showESCells.png)
+* In the grid, select ENCODE datasets for the `CTCF` assay and the `B cell` cell type.
 
-* In the grid, select ENCODE datasets for the YY1 assay and the H1hESC cell type.
-
-![img](img/module5/HOMER_selectYY1.png)
+![img](img/module5/HOMER_selectCTCF.png)
 
 
-* Go to the track list at the bottom of the grid and select only the dataset for sample "H1-hESC_YY1_Pk__HudsonAlpha_".
+* Go to the track list at the bottom of the grid and select only the dataset for sample "ENCBS400ARI".
 
 ![img](img/module5/HOMER_selectPeaksTrack.png)
 
 * You can get the URL to the track you want by clicking on the "Download tracks" button at the bottom of the grid.
-Here, we're interested in ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
+Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed```.
 * Open your Compute Canada terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
 ```
 mkdir homer
 cd homer
-wget http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed
+wget https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed
 ```
 
 * Convert the bigBed file into a bed file using the UCSC set of tools. It is available as a CVMFS module.
 
 ```
 module load mugqic/ucsc/20140212
-bigBedToBed 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bed
+bigBedToBed 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed
 ```
 
 * Prepare an output directory for HOMER, and a genome preparsed motifs directory.
@@ -183,16 +183,16 @@ mkdir preparsed
 
 ```
 module load mugqic/homer/4.9.1
-findMotifsGenome.pl 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
+findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
 ```
 
 * HOMER takes a while to execute for a whole genome track like this. Expect this job to take about 30 minutes of runtime, with the current 2 cores setup. In the meantime, we will explore the GO terms enrichment tool GREAT.
 
 ### 3- Looking for GO terms enrichment with GREAT
 
-Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need BED files to use the GREAT portal. We will do the conversion on our Compute Canada session.
+Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need `bed` files to use the GREAT portal. We will do the conversion from a `bigBed` file to a `bed` file on our Compute Canada session.
 
-* In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). Filter the tissues list to keep only "Bone Marrow" tissues.
+* In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). For assembly `Human (hg38)`, filter the tissues list to keep only "Bone Marrow" tissues. 
 
 ![img](img/module5/GREAT_select_bone_marrow.png)
 
@@ -200,7 +200,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 ![img](img/module5/GREAT_bone_marrow_h3k27ac.png)
 
-* For this exercise, we will download only two of the bigbeds for available datasets. Pick up the dataset below:
+* For this exercise, we will download only one of the bigbeds for available datasets. Pick up the dataset below, for sample `ERS1027405`:
 
 ![img](img/module5/GREAT_selectSomeBoneMarrowDatasets.png)
 
@@ -210,7 +210,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 ![img](img/module5/GREAT_batch_download.png)
 
-* Open another terminal connection to get into Compute Canada.
+* Open another terminal connection to get into Compute Canada, either through JupyterLab, or another terminal window.
 
 * Go to your module5 directory and create a place to put the material we will download.
 
@@ -251,7 +251,7 @@ sort -R 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed > 58394.Blueprint.ERS1
 head -n 20000 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
 ```
 
-* Download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.
+* **From your local computer**, download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.
 
 ```
 scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/*.bed .
