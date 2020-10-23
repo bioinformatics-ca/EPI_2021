@@ -58,7 +58,7 @@ Comming soon
 
 ## Labs
 
-[Tutorial](https://drive.google.com/file/d/1ryxRfm5c-ChsWSsWrHP52ZSqKtZtrodA/view?usp=sharing)  
+[Tutorial](https://drive.google.com/file/d/18-LEfA8TAbitdZUs8vIXkQ5Fd_UASqmg/view?usp=sharing)  
 
 
 # Day 2 <a id="day2"></a>
@@ -69,7 +69,7 @@ Comming soon
   
 [Lecture Module4](https://drive.google.com/file/d/1GPQ_fzp5uxC85LPr1oLyYazLu9FFzKs6/view?usp=sharing)
  
-[labs Module4](https://bioinformaticsdotca.github.io//epi2020_module4_lab)
+[labs Module4](https://drive.google.com/file/d/1N5S1bNdHkDcUXZLoclLSZIEkdIY2PsiV/view?usp=sharing)
  
 
 
