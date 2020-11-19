@@ -22,7 +22,8 @@ The course schedule can be found [here](https://bioinformaticsdotca.github.io/Ep
 
 # Class photo
 
-Comming soon
+<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/EpiClass2020.jpg?raw=true" alt="Class Photo" width="750" />
+
 
 ***
 
