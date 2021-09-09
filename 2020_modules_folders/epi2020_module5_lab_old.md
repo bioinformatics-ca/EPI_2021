@@ -1,6 +1,6 @@
 ---
 layout: tutorial_page
-permalink: /epi2021_module5_lab
+permalink: /epi2020_module5_lab
 title: Epigenomics Lab 5
 header1: Workshop Pages for Students
 header2: Downstream analyses & integrative tools
@@ -29,7 +29,7 @@ We will now explore some of the tools that were covered in the lecture for modul
 
 ### Local software that we will use
 
-**You should already have an open ssh terminal session to your AWS account.** 
+**You should already have an open connection to Compute Canada, either through JupyterLab, or through an ssh terminal session.** 
 
 * A web browser
 * scp or WinSCP to transfer results from Compute Canada to your computer
@@ -39,10 +39,10 @@ We will now explore some of the tools that were covered in the lecture for modul
 
 #####  Preparation on your Compute Canada session
 
-From your terminal session, go to your workspace folder.
+From your Compute Canada terminal session, go to your home folder.
 
 ```
-cd ~/workspace
+cd ~
 ```
 
 You will be in your home folder.
@@ -54,9 +54,9 @@ You will be in your home folder.
 * Go to that directory.
 
 ```
-rm -rf module5
-mkdir module5
-cd module5
+rm -rf ~/module5
+mkdir -p ~/module5
+cd ~/module5
 ```
 
 ### 1- IHEC Data Portal
@@ -157,7 +157,7 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * You can get the URL to the track you want by clicking on the "Download tracks" button at the bottom of the grid.
 Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed```.
-* Open your AWS terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
+* Open your Compute Canada terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
 ```
 mkdir homer
@@ -165,9 +165,10 @@ cd homer
 wget https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed
 ```
 
-* Convert the bigBed file into a bed file using the UCSC set of tools.
+* Convert the bigBed file into a bed file using the UCSC set of tools. It is available as a CVMFS module.
 
 ```
+module load mugqic/ucsc/20140212
 bigBedToBed 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed
 ```
 
@@ -178,7 +179,7 @@ mkdir output
 mkdir preparsed
 ```
 
-* Run the HOMER software to identify motifs in the peak regions.
+* Run the HOMER software to identify motifs in the peak regions. You need to load the proper module:
     * **mugqic/homer/4.9.1** to run HOMER
 
 ```
@@ -215,7 +216,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 * Go to your module5 directory and create a place to put the material we will download.
 
 ```
-cd ~/workspace/module5
+cd ~/module5
 mkdir great
 cd great
 ```
@@ -233,9 +234,16 @@ wget -O trackList.txt 'https://epigenomesportal.ca/api/datahub/download?session=
 wget -i trackList.txt
 ```
 
-* Convert the bigbed using the UCSC set of tools.
+* To save some space within our Compute Canada workshop allocation, we will delete the signal file for now.
 
 ```
+rm 58393.Blueprint.ERS1027405.H3K27ac.signal_unstranded.bigWig
+```
+
+* Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module.
+
+```
+module load mugqic/ucsc/20140212
 bigBedToBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bigBed 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed
 ```
 
@@ -250,10 +258,10 @@ sort -R 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.bed > 58394.Blueprint.ERS1
 head -n 20000 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random.bed > 58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
 ```
 
-* From your local computer, download the BED file `58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed` locally using your browser.
+* **From your local computer**, download the BED file `58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed` locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on your Compute Canada terminal session.
 
 ```
-http://<your VM ip address>/module5/great/58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed
+scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/58394.Blueprint.ERS1027405.H3K27ac.peak_calls.random_short.bed .
 ```
 
 * Load the GREAT website: [http://bejerano.stanford.edu/great/public/html/](http://bejerano.stanford.edu/great/public/html/)
@@ -280,13 +288,17 @@ cd ~/module5/homer/
 zip -r homer.zip output
 ```
 
-* Next, with your web browser, download the zipped result set.
+* Next, **from your laptop**, use the scp command or WinSCP to bring back the results folder.
+
+```
+scp -r user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/homer/homer.zip .
+```
 
 * Unzip the file, and open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
 <img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_results.png?raw=true" alt="p3" width="750" />
 
-## Galaxy (Lab Part 2)
+### Galaxy (optional: you can do this part on your own)
 
 We will now explore and learn how to use the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
 
