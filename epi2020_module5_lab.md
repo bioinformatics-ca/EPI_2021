@@ -281,6 +281,10 @@ zip -r homer.zip output
 
 * Next, with your web browser, download the zipped result set.
 
+```
+http://<your VM ip address>/module5/homer/homer.zip
+```
+
 * Unzip the file, and open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
 <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/HOMER_results.png?raw=true" alt="p3" width="750" />
