@@ -28,9 +28,10 @@ In Lab Part 2, we will explore the Galaxy web platform and launch a few jobs on 
 
 * Tool to connect to your remote terminal session (e.g. Putty in Windows)
 * A web browser
+* The IGV genome browser
 
 
-## Tutorial
+## Lab Part 1
 
 #####  Preparation on your AWS session
 
@@ -66,7 +67,7 @@ cd module5
 
 * Go back to the Overview page (`Home` on the top menu), and select the following categories of datasets: On the "hg19" reference genome, "Histone" experiments for the "Muscle" cell type. Click on `View selected`.
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/portal_select_from_overview.png?raw=true" alt="P1" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/portal_select_from_overview.png?raw=true" alt="P1" width="750" />
 
 * Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cell:
 
@@ -77,11 +78,11 @@ cd module5
 
 * Click on the "Send" button for the UCSC Genome Browser, at the bottom of the grid.
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/portal_send_to_ucsc.png?raw=true" alt="p2" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/portal_send_to_ucsc.png?raw=true" alt="p2" width="750" />
 
-* You can see that the datasets are being displayed at a mirror of the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
+* You can see that the datasets are being displayed on the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
 
- <img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/ucsc_fullTrackView.png?raw=true" alt="p3" width="750" />   
+ <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/ucsc_fullTrackView.png?raw=true" alt="p3" width="750" />   
  
 * You can also download these tracks locally for visualization in IGV.
     * Go back to the IHEC Data Portal tab.
@@ -108,7 +109,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view with the buttons at the lower right corner of the popup.
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/portal_clusteringPerMark.png?raw=true" alt="p4" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/portal_clusteringPerMark.png?raw=true" alt="p4" width="750" />
 
 * You can also use the correlation tool to assess whether datasets that are supposed to be similar actually are.
     * Close the correlation popup window with the top right "X" button.
@@ -129,11 +130,11 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Reset to the default IHEC Data Portal view by clicking "Data Grid" in the top bar.
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_selectDataGrid.png?raw=true" alt="p5" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/HOMER_selectDataGrid.png?raw=true" alt="p5" width="750" />
 
 * Choose Assembly `hg19`.
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_selecthg19.png?raw=true" alt="p6" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/HOMER_selecthg19.png?raw=true" alt="p6" width="750" />
 
 * In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays.
 
@@ -148,10 +149,11 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Go to the track list at the bottom of the grid and select only the dataset for sample "ENCBS400ARI".
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_selectPeaksTrack.png?raw=true" alt="p7" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/HOMER_selectPeaksTrack.png?raw=true" alt="p7" width="750" />
 
 * You can get the URL to the track you want by clicking on the "Download tracks" button at the bottom of the grid.
-Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed```.
+Here, we're interested in ```https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed```. This file contains peaks that were called out of the TFBS ChIP-Seq experiment.
+*  _Useful tip_: You can get the full set of metadata about ENCODE experiments and samples by consulting the ENCODE portal, and searching for a given sample name. In this case: `https://www.encodeproject.org/biosamples/ENCBS400ARI/`
 * Open your AWS terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
 ```
@@ -160,6 +162,7 @@ cd homer
 wget https://epigenomesportal.ca/tracks/ENCODE/hg19/71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bigBed
 ```
 
+* UCSC provides a set of file format conversion tools, such as `bigBedToBed`, which converts a binary bigbed file to its plain text file equivalent. Some of these tools have been pre-installed on your AWS image.
 * Convert the bigBed file into a bed file using the UCSC set of tools.
 
 ```
@@ -174,6 +177,9 @@ mkdir preparsed
 ```
 
 * Run the HOMER software to identify motifs in the peak regions.
+  * `-p 2` indicates to use 2 cores.
+  * `-S 15` tells Homer to find 15 motifs, instead of the default 25, for execution speed purposes.
+  * You can get the full list of parameters here: http://homer.ucsd.edu/homer/ngs/peakMotifs.html
 
 ```
 findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
@@ -195,13 +201,13 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 * For this exercise, we will download only one of the bigbeds for available datasets. Pick up the dataset below, for sample `ERS1027405`:
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_selectSomeBoneMarrowDatasets.png?raw=true" alt="p8" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/GREAT_selectSomeBoneMarrowDatasets.png?raw=true" alt="p8" width="750" />
 
 * Click "Download tracks" at the bottom of the grid.
 
 * On the download page, click on `View Full URL List`. This will give you a text list with all tracks of interest. Copy the link to this page in your clipboard, using the address provided in your browser's URL bar.
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_batch_download.png?raw=true" alt="p9" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/GREAT_batch_download.png?raw=true" alt="p9" width="750" />
 
 * Open another terminal session to get into AWS.
 
@@ -260,7 +266,7 @@ http://<your VM ip address>/module5/great/58394.Blueprint.ERS1027405.H3K27ac.pea
 
 * In the results, for instance, you should obtain something like this for biological processes:
 
- <img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_go_biological_process.png?raw=true" alt="p3" width="750" />   
+ <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/GREAT_go_biological_process.png?raw=true" alt="p3" width="750" />   
 
 Bonus question: Why is your result slightly different from the screenshot?
 
@@ -277,9 +283,9 @@ zip -r homer.zip output
 
 * Unzip the file, and open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
-<img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/HOMER_results.png?raw=true" alt="p3" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/HOMER_results.png?raw=true" alt="p3" width="750" />
 
-## Galaxy (Lab Part 2)
+## Lab Part 2: Galaxy
 
 We will now explore and learn how to use the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
 
