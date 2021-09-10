@@ -5,17 +5,12 @@ title: Epigenomics Lab 5
 header1: Workshop Pages for Students
 header2: Downstream analyses & integrative tools
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/epigenomics_2020
+home: https://bioinformaticsdotca.github.io/epigenomics_2021
 ---
 
 
 # Module 5: Downstream analyses & integrative tools
 *by David Bujold, M.Sc.*
-
-## Important notes:
-* The username **user01** in all of the commands below is provided as an example. 
-You should always replace it with the user that was assigned to you for this workshop. 
-
 
 ## Introduction
 
@@ -27,17 +22,15 @@ We will now explore some of the tools that were covered in the lecture for modul
 * Third, we will use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.
 * Last, we'll explore and launch a few jobs on the Galaxy web platform.
 
-### Local software that we will use
+### Local software that will be needed
 
-**You should already have an open ssh terminal session to your AWS account.** 
-
+* Tool to connect to your remote terminal session (e.g. Putty in Windows)
 * A web browser
-* scp or WinSCP to transfer results from Compute Canada to your computer
 
 
 ## Tutorial
 
-#####  Preparation on your Compute Canada session
+#####  Preparation on your AWS session
 
 From your terminal session, go to your workspace folder.
 
@@ -179,10 +172,8 @@ mkdir preparsed
 ```
 
 * Run the HOMER software to identify motifs in the peak regions.
-    * **mugqic/homer/4.9.1** to run HOMER
 
 ```
-module load mugqic/homer/4.9.1
 findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
 ```
 
@@ -190,7 +181,7 @@ findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -pr
 
 ### 3- Looking for GO terms enrichment with GREAT
 
-Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need `bed` files to use the GREAT portal. We will do the conversion from a `bigBed` file to a `bed` file on our Compute Canada session.
+Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need `bed` files to use the GREAT portal. We will do the conversion from a `bigBed` file to a `bed` file on our AWS session.
 
 * In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). For assembly `Human (hg38)`, filter the tissues list to keep only "Bone Marrow" tissues. 
 
@@ -210,7 +201,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 <img src="https://github.com/bioinformatics-ca/Epigenomics_2020/blob/master/img/module5/GREAT_batch_download.png?raw=true" alt="p9" width="750" />
 
-* Open another terminal connection to get into Compute Canada, either through JupyterLab, or another terminal window.
+* Open another terminal session to get into AWS.
 
 * Go to your module5 directory and create a place to put the material we will download.
 
