@@ -289,7 +289,7 @@ zip -r homer.zip output
 
 We will now explore and learn how to use the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
 
-* Using a web browser, open the following URL: [http://workshop103-galaxy.vzhost34.genap.ca/galaxy/](http://workshop103-galaxy.vzhost34.genap.ca/galaxy/)
+* For this exercise, we will use the main Galaxy server. Using a web browser, open the following URL: [https://usegalaxy.org/](https://usegalaxy.org/)
  
 While you can run Galaxy jobs without creating an account, features and number of jobs that can be executed at once will be limited. We should therefore create an account.
 
