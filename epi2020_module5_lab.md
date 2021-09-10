@@ -310,6 +310,8 @@ While you can run Galaxy jobs without creating an account, features and number o
     * For Genome, specify “Human (Home sapiens): hg19”
     * Click on ```Start```.
 
+ <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_get_files.png?raw=true" alt="p3" width="750" />
+
 * After it finished to upload (green state), rename the two imported files, for better organization.
     * From the history column, click on the ```Pen``` icon for the first imported item, and enter the new name “adrenal_1” in the dialog.
     * Rename the second imported file to “adrenal_2”.
