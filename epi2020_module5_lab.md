@@ -291,15 +291,13 @@ We will now explore and learn how to use the Galaxy interface. In this short exe
 
 * For this exercise, we will use the main Galaxy server. Using a web browser, open the following URL: [https://usegalaxy.org/](https://usegalaxy.org/)
  
-While you can run Galaxy jobs without creating an account, features and number of jobs that can be executed at once will be limited. We should therefore create an account.
+The types of jobs you can run without registering on the main Galaxy instance are limited. We should therefore create an account.
 
-* On the top menu, click on "User" > "Register"
+* On the top menu, click on "Login or Register".
 
-* Fill the email, password and public name boxes, and click on "Submit"
+* Click on "Don't have an account? Register here.", fill your account information, and validate your email address.
 
-* Click on "Return to the home page."
-
-* You are now logged in as a Galaxy user. For this exercise, we’ll use subsets of data from the Illumina BodyMap 2.0 project, from human adrenal gland tissues. The sampled reads are paired-end 50bp that map mostly to a 500Kb region of chromosome 19, positions 3-3.5 million (chr19:3000000:3500000). (source: https://usegalaxy.org/u/jeremy/p/galaxy-rna-seq-analysis-exercise)
+* Once you are logged in as a Galaxy user, you're ready to go. For this exercise, we’ll use subsets of data from the Illumina BodyMap 2.0 project, from human adrenal gland tissues. The sampled reads are paired-end 50bp that map mostly to a 500Kb region of chromosome 19, positions 3-3.5 million (chr19:3000000:3500000). (source: https://usegalaxy.org/u/jeremy/p/galaxy-rna-seq-analysis-exercise)
 
 * Import the following two FASTQ files in your user space. To do so:
     * Use Get Data > Upload File from the tool section
