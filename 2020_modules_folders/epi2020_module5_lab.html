@@ -89,7 +89,7 @@ cd ~/module5
 <li>Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cell:</li>
 </ul>
 
-<p><img src="img/module5/portal_muscle_h3k27ac.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_muscle_h3k27ac.png" alt="img" title="" /></p>
 
 <h4>Visualizing the tracks</h4>
 
@@ -121,17 +121,17 @@ cd ~/module5
 <li>Back on the Data Grid tab of your browser, from the filters at the right of the grid, add back datasets for all tissues and all assay types. You can select all checkboxes at once by click on the top checkbox, next to "Category". Also remove non-core assays if it is selected.</li>
 </ul>
 
-<p><img src="img/module5/portal_selectAllTissues.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_selectAllTissues.png" alt="img" title="" /></p>
 
-<p><img src="img/module5/portal_selectAllAssays.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_selectAllAssays.png" alt="img" title="" /></p>
 
-<p><img src="img/module5/portal_deselect_non_core_assays.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_deselect_non_core_assays.png" alt="img" title="" /></p>
 
 <ul>
 <li>Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", under the "Stromal" category. The first 6 columns should be selected.</li>
 </ul>
 
-<p><img src="img/module5/portal_roadmap_chipseq.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_roadmap_chipseq.png" alt="img" title="" /></p>
 
 <ul>
 <li><p>At the bottom of the grid, click on the button "Correlate datasets".</p></li>
@@ -151,11 +151,11 @@ cd ~/module5
 </ul></li>
 </ul>
 
-<p><img src="img/module5/portal_selectBcell.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_selectBcell.png" alt="img" title="" /></p>
 
 <p>You should get something like this:</p>
 
-<p><img src="img/module5/portal_correlationOutlier.png" alt="img" title="" /></p>
+<p><img src="../img/module5/portal_correlationOutlier.png" alt="img" title="" /></p>
 
 <h3>2- Predicting motifs with HOMER</h3>
 
@@ -177,15 +177,15 @@ cd ~/module5
 <li>In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (<code>TFBS</code>) assays.</li>
 </ul>
 
-<p><img src="img/module5/HOMER_showNonCoreAssays.png" alt="img" title="" /></p>
+<p><img src="../img/module5/HOMER_showNonCoreAssays.png" alt="img" title="" /></p>
 
-<p><img src="img/module5/HOMER_showTFBS.png" alt="img" title="" /></p>
+<p><img src="../img/module5/HOMER_showTFBS.png" alt="img" title="" /></p>
 
 <ul>
 <li>In the grid, select ENCODE datasets for the <code>CTCF</code> assay and the <code>B cell</code> cell type.</li>
 </ul>
 
-<p><img src="img/module5/HOMER_selectCTCF.png" alt="img" title="" /></p>
+<p><img src="../img/module5/HOMER_selectCTCF.png" alt="img" title="" /></p>
 
 <ul>
 <li>Go to the track list at the bottom of the grid and select only the dataset for sample "ENCBS400ARI".</li>
@@ -247,13 +247,13 @@ findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -pr
 <li>In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). For assembly <code>Human (hg38)</code>, filter the tissues list to keep only "Bone Marrow" tissues. </li>
 </ul>
 
-<p><img src="img/module5/GREAT_select_bone_marrow.png" alt="img" title="" /></p>
+<p><img src="../img/module5/GREAT_select_bone_marrow.png" alt="img" title="" /></p>
 
 <ul>
 <li>Select the datasets for cell type "Myeloid cell" and assay H3K27ac.</li>
 </ul>
 
-<p><img src="img/module5/GREAT_bone_marrow_h3k27ac.png" alt="img" title="" /></p>
+<p><img src="../img/module5/GREAT_bone_marrow_h3k27ac.png" alt="img" title="" /></p>
 
 <ul>
 <li>For this exercise, we will download only one of the bigbeds for available datasets. Pick up the dataset below, for sample <code>ERS1027405</code>:</li>
@@ -342,7 +342,7 @@ scp user01@login1.cbw-oct-2020.calculquebec.cloud:/home/user01/module5/great/*.b
 <li><p>In the results, for instance, you should obtain something like this for biological processes:</p></li>
 </ul>
 
-<p><img src="img/module5/GREAT_go_biological_process.png" alt="img" title="" /></p>
+<p><img src="../img/module5/GREAT_go_biological_process.png" alt="img" title="" /></p>
 
 <p>Bonus question: Why is your result slightly different from the screenshot?</p>
 

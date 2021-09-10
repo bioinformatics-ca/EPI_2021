@@ -17,10 +17,12 @@ home: https://bioinformaticsdotca.github.io/epigenomics_2021
 ### Description of the lab
 We will now explore some of the tools that were covered in the lecture for module 5.
 
-* First, we will learn how to use the IHEC Data Portal's tools to fetch feature tracks of interest.
-* Second, we will explore ChIP-Seq peak prediction files (in bed format) to discover motifs using HOMER.
-* Third, we will use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.
-* Last, we'll explore and launch a few jobs on the Galaxy web platform.
+In Lab Part 1, we will:
+* Learn how to use the IHEC Data Portal's tools to fetch feature tracks of interest.
+* Explore ChIP-Seq peak prediction files (in bed format) to discover motifs using HOMER.
+* Use an IHEC dataset with the GREAT GO enrichment tool to do functions prediction.
+ 
+In Lab Part 2, we will explore the Galaxy web platform and launch a few jobs on it.
 
 ### Local software that will be needed
 

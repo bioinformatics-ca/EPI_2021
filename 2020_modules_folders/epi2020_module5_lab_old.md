@@ -75,7 +75,7 @@ cd ~/module5
 
 * Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cell:
 
-![img](img/module5/portal_muscle_h3k27ac.png)
+![img](../img/module5/portal_muscle_h3k27ac.png)
 
 
 #### Visualizing the tracks
@@ -99,15 +99,15 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * Back on the Data Grid tab of your browser, from the filters at the right of the grid, add back datasets for all tissues and all assay types. You can select all checkboxes at once by click on the top checkbox, next to "Category". Also remove non-core assays if it is selected.
 
-![img](img/module5/portal_selectAllTissues.png)
+![img](../img/module5/portal_selectAllTissues.png)
 
-![img](img/module5/portal_selectAllAssays.png)
+![img](../img/module5/portal_selectAllAssays.png)
 
-![img](img/module5/portal_deselect_non_core_assays.png)
+![img](../img/module5/portal_deselect_non_core_assays.png)
 
 * Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", under the "Stromal" category. The first 6 columns should be selected.
 
-![img](img/module5/portal_roadmap_chipseq.png)
+![img](../img/module5/portal_roadmap_chipseq.png)
 
 * At the bottom of the grid, click on the button "Correlate datasets".
 
@@ -122,11 +122,11 @@ You can get a whole genome overview of the similarity of a group of tracks by us
     * Click on "Correlate datasets".
     * One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
 
-![img](img/module5/portal_selectBcell.png)
+![img](../img/module5/portal_selectBcell.png)
 
 You should get something like this:
 
-![img](img/module5/portal_correlationOutlier.png)
+![img](../img/module5/portal_correlationOutlier.png)
 
 ### 2- Predicting motifs with HOMER
 
@@ -142,13 +142,13 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays.
 
-![img](img/module5/HOMER_showNonCoreAssays.png)
+![img](../img/module5/HOMER_showNonCoreAssays.png)
 
-![img](img/module5/HOMER_showTFBS.png)
+![img](../img/module5/HOMER_showTFBS.png)
 
 * In the grid, select ENCODE datasets for the `CTCF` assay and the `B cell` cell type.
 
-![img](img/module5/HOMER_selectCTCF.png)
+![img](../img/module5/HOMER_selectCTCF.png)
 
 
 * Go to the track list at the bottom of the grid and select only the dataset for sample "ENCBS400ARI".
@@ -195,11 +195,11 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 * In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). For assembly `Human (hg38)`, filter the tissues list to keep only "Bone Marrow" tissues. 
 
-![img](img/module5/GREAT_select_bone_marrow.png)
+![img](../img/module5/GREAT_select_bone_marrow.png)
 
 * Select the datasets for cell type "Myeloid cell" and assay H3K27ac.
 
-![img](img/module5/GREAT_bone_marrow_h3k27ac.png)
+![img](../img/module5/GREAT_bone_marrow_h3k27ac.png)
 
 * For this exercise, we will download only one of the bigbeds for available datasets. Pick up the dataset below, for sample `ERS1027405`:
 
