@@ -5,7 +5,7 @@ title: Epigenomics Lab 5
 header1: Workshop Pages for Students
 header2: Downstream analyses & integrative tools
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/epigenomics_2021
+home: https://bioinformaticsdotca.github.io/EPI_2021
 ---
 
 
@@ -305,8 +305,8 @@ While you can run Galaxy jobs without creating an account, features and number o
     * Use Get Data > Upload File from the tool section
     * Go to the ```Paste/Fetch data``` section
     * You can provide both URLs in the same text box
-        * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/files/adrenal_1.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/files/adrenal_1.fastq)
-        * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/files/adrenal_2.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2018/master/files/adrenal_2.fastq)
+        * [https://raw.githubusercontent.com/bioinformaticsdotca/EPI_2021/master/files/adrenal_1.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/EPI_2021/master/files/adrenal_1.fastq)
+        * [https://raw.githubusercontent.com/bioinformaticsdotca/EPI_2021/master/files/adrenal_2.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/EPI_2021/master/files/adrenal_2.fastq)
     * For Genome, specify “Human (Home sapiens): hg19”
     * Click on ```Start```.
 
