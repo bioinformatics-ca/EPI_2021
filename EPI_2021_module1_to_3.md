@@ -1,3 +1,7 @@
+# Introduction to ChIP-seq and analysis
+
+*by Martin Hirst and Edmund Su*
+
 # Table of contents:
 
 <font size="5">[Common tools of the trade](#Common-tools-of-the-trade)</font>
@@ -517,6 +521,7 @@ Filtered out region due to intersect w/ blacklist
 chr16:34,145,433-34,160,335
 ```
 <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/moduel1/blacklist.png?raw=true" width= 750 />
+
 ```Shell
 Artifact region:
 chr16:34514779-34732558
