@@ -33,9 +33,9 @@ In Lab Part 2, we will explore the Galaxy web platform and launch a few jobs on 
 
 ## Lab Part 1
 
-#####  Preparation on your AWS session
+#####  Preparation in your AWS session
 
-From your terminal session, go to your workspace folder.
+From your command line terminal, go to your workspace folder.
 
 ```
 cd ~/workspace
@@ -60,18 +60,18 @@ cd module5
 #### Exploring available datasets
 * Open a web browser on your computer, and load the URL [http://epigenomesportal.ca/ihec](http://epigenomesportal.ca/ihec) .
 
-* In the Overview page, click on the "View all" button.
+* In the Overview page, click on the "View all" button, below the pie charts.
 
 * You will get a grid with all available datasets for IHEC Core Assays, on the hg38 assembly.
     * You can filter out visible datasets in the grid using the filtering options at the right of the grid.
 
-* Go back to the Overview page (`Home` on the top menu), and select the following categories of datasets: On the "hg19" reference genome, "Histone" experiments for the "Muscle" cell type. Click on `View selected`.
+* Go back to the Overview page (`Home` on the top menu), and select the following categories of datasets: On the "hg38" reference genome, "Histone" experiments for the "Blood" cell type. Click on `View selected`.
 
 <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/portal_select_from_overview.png?raw=true" alt="P1" width="750" />
 
-* Only these categories will now get displayed in the grid. Expand the "Muscle" category by clicking on the black triangle, and select the following grid cell:
+* Only these categories will now get displayed in the grid. Expand the "Blood" category by clicking on the black triangle, and select the following grid cell:
 
-![img](img/module5/portal_muscle_h3k27ac.png)
+![img](img/module5/portal_blood_h3k27ac.png)
 
 
 #### Visualizing the tracks
