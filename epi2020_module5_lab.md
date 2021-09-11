@@ -80,7 +80,7 @@ cd module5
 
 <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/portal_send_to_ucsc.png?raw=true" alt="p2" width="750" />
 
-* You can see that the datasets are being displayed on the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
+* You can see that the datasets are being displayed on the UCSC Genome Browser. These are all peaks and signal for the chosen blood H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
 
  <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/ucsc_fullTrackView.png?raw=true" alt="p3" width="750" />   
  
