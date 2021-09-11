@@ -263,7 +263,7 @@ rm ~/workspace/alignments/${sample}.bam
 ##### Comment:
 ```Shell
 Good practice to remove redundant files
-```![image.png](attachment:image.png)![image.png](attachment:image.png)
+```
 
 ## <B>Module 2. Peak Calling</B>
 ***
