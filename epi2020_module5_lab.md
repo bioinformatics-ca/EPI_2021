@@ -101,13 +101,13 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 ![img](img/module5/portal_deselect_non_core_assays.png)
 
-* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", under the "Stromal" category. The first 6 columns should be selected.
+* Select all ChIP-Seq marks for the cell type "Myeloid cell", under the "Bone Marrow" category. The first 6 columns should be selected.
 
-![img](img/module5/portal_roadmap_chipseq.png)
+![img](img/module5/portal_blueprint_chipseq.png)
 
 * At the bottom of the grid, click on the button "Correlate datasets".
 
-* You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view with the buttons at the lower right corner of the popup.
+* You will see that similar tracks (e.g. those of the same assay, seem to correlate nicely. You can zoom in the view with the buttons at the lower right corner of the popup.
 
 <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/portal_clusteringPerMark.png?raw=true" alt="p4" width="750" />
 
