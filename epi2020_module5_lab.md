@@ -177,12 +177,12 @@ mkdir preparsed
 ```
 
 * Run the HOMER software to identify motifs in the peak regions.
-  * `-p 2` indicates to use 2 cores.
+  * `-p 4` indicates to use 4 cores.
   * `-S 15` tells Homer to find 15 motifs, instead of the default 25, for execution speed purposes.
   * You can get the full list of parameters here: http://homer.ucsd.edu/homer/ngs/peakMotifs.html
 
 ```
-findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
+findMotifsGenome.pl 71523.ENCODE.ENCBS400ARI.CTCF.peak_calls.bed hg19 output -preparsedDir preparsed -p 4 -S 15
 ```
 
 * HOMER takes a while to execute for a whole genome track like this. Expect this job to take about 30 minutes of runtime, with the current 2 cores setup. In the meantime, we will explore the GO terms enrichment tool GREAT.
