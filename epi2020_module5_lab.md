@@ -275,7 +275,7 @@ Bonus question: Why is your result slightly different from the screenshot?
 * Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualization. First we'll compress the results to a zip file.
 
 ```
-cd ~/module5/homer/
+cd ~/workspace/module5/homer/
 zip -r homer.zip output
 ```
 
