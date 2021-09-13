@@ -19,11 +19,11 @@ author: Martin Hirst and Edmund Su
 
 1. [Common tools of the trade ](#Common-tools-of-the-trade)
 
-3. [Module 1 Alignment](#Module1)
+3. [Module 1 Alignment ](#Module1)
 
-5. [Module 2 Peak Calling](#Module2) 
+5. [Module 2 Peak Calling ](#Module2) 
 
-7. [Module 3 Differential Analysis](#Module3)  
+7. [Module 3 Differential Analysis ](#Module3)  
 
 
 
