@@ -343,9 +343,9 @@ The types of jobs you can run without registering on the main Galaxy instance ar
  <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_fastq_compare.png?raw=true" alt="p3" width="750" />
 
 * As an exercise after the workshop, or if you have time remaining, you can now try to use this dataset in one of the aligners provided by Galayx, such as HISAT2 or RNA STAR. Once the alignment is completed, try
-  * downloading the BAM ```floppy disk``` icon and visualizing it in IGV
+  * downloading the BAM using the ```floppy disk``` icon and visualizing it in IGV
   * visualizing it in the UCSC Genome Browser, using the ```display at UCSC main``` option
-  * creating a bigWig coverage track using the bamCoverage tool. 
+  * creating a bigWig coverage track using the bamCoverage tool 
 
  <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_ucsc_aligned_set.png?raw=true" alt="p3" width="750" />
 
