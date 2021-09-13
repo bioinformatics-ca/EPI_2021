@@ -314,27 +314,35 @@ The types of jobs you can run without registering on the main Galaxy instance ar
 
  <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_get_files.png?raw=true" alt="p3" width="750" />
 
-* After it finished uploading (green state), rename the two imported files, for better organization.
-    * From the history column, click on the ```Pen``` icon for the first imported item, and enter the new name “adrenal_1” in the dialog.
-    * Rename the second imported file to “adrenal_2”.
-    * Examine results from the history bar using the ```Eye``` icon.
+* After it finished uploading (green state), you can rename the two imported files, for better organization.
+    * From the history column, click on the ```Pen``` icon for the first imported item. Note that you can enter a new name to replace “adrenal_1.fastq” in the dialog if desired.
+    * Examine the adrenal_1.fastq file content using the ```Eye``` icon.
 
 * Run the tool FastQC: Comprehensive QC for adrenal_1.
     * To find it, use the search window at the top of the Tools column (left panel).
-    * Execute, then examine results from the history bar using the ```Eye``` icon.
-    * Repeat the same operations for adrenal_2. As a shortcut, you can click on the new file name in our history, then click on the ```Run this job again``` icon and simply change the input file to automatically reuse the same parameters.
+    * From the FastQC tool interface, for the field ```Short read data from your current history```, choose adrenal_1.
+    * Click on ```Execute```.
+    * Pay attention to the green notice, which provides details about the input and output of the job you just launched.
+    * Once the job is completed, examine the Webpage results from the history bar using the ```Eye``` icon.
+    * Raw output statistics are also available, and can also be seen with the ```Eye``` icon.
+    * Repeat the same operations for adrenal_2. As a shortcut, you can click on the FastQC history item, then click on the ```Run this job again``` icon and simply change the input file to automatically reuse the same parameters.
 
-* Many tools using FASTQ files in Galaxy require them to be “groomed”, meaning they will be standardized. This will ensure more reliability and consistency to those tools output. To groom our FASTQ files, we will use the tool FASTQ Groomer with default parameters.
+* If desired, you can run a sanity check on your FASTQ files in Galaxy, to ensure they meet the expected standards. To groom our FASTQ files, we will use the tool ```FASTQ Groomer``` with default parameters.
     * When we don’t know which quality score type to provide, we can extract that information from the FastQC report that we already generated. Can you find the information in the FastQC report? (Answer: It’s in Sanger format)
     * Leave the other options as-is.
     * Run this for both of our paired-end files, adrenal_1 and adrenal_2.
 
 * You will now trim the reads, to improve the quality of the dataset by removing bad quality bases, clipping adapters and so on. Launch the Trimmomatic tool with default parameters, except:
+    * Set the input as ```Paired-end (two separate input files)```
     * Give the groomed adrenal_1 file for direction 1, and groomed adrenal_2 for direction 2.
     * Sliding window size: 4
     * Average quality required: 30
 
 * Run FastQC again on both paired files, and compare results with pre-trimming FastQC output.
+
+ <img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/module5/galaxy_fastq_compare.png?raw=true" alt="p3" width="750" />
+
+
 
 ### All done!
 
