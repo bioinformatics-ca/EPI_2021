@@ -18,9 +18,12 @@ author: Martin Hirst and Edmund Su
 ##  Table of contents:
 
 1. [Common tools of the trade ](#Common-tools-of-the-trade)
-2. [Module 1. Alignment](#Module-1)
-3. [Module 2. Peak Calling](#Module-2)  
-4. [Module 3. Differential Analysis](#Module-3)  
+
+3. [Module 1 Alignment](#Module1)
+
+5. [Module 2 Peak Calling](#Module2) 
+
+7. [Module 3 Differential Analysis](#Module3)  
 
 
 
