@@ -34,7 +34,7 @@ author: Martin Hirst and Edmund Su
 |Tool|Website|Info|
 |:---:|:---:|:---:|
 |BWA|http://bio-bwa.sourceforge.net/bwa.shtml| Genomic Sequence Read alignment tool |
-|PICARD|https://broadinstitute.github.io/picard/| Toolkit for BAM file manipulation
+|PICARD|https://broadinstitute.github.io/picard/| Toolkit for BAM file manipulation|
 |SAMTOOLS|http://www.htslib.org/doc/samtools.html| Toolkit for BAM file manipulation |
 |BEDTOOLS|https://bedtools.readthedocs.io/en/latest/index.html | Toolkit for BED/BEDGRAPH file manipulation |
 |MACS2|https://github.com/macs3-project/MACS | Enriched region identifier for ChIP-seq |
@@ -52,42 +52,42 @@ author: Martin Hirst and Edmund Su
 ### <B>- Resource files</B>
 |File name | File location| Source|
 |:---:|:---:|:---:|
-|CEMT Pooled Breast Basal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69069.CEEHRC.CEMT0035.H3K27ac.peak_calls.bigBed
-|CEMT Pooled Breast Basal ||https://epigenomesportal.ca/tracks/CEEHRC/hg38/69067.CEEHRC.CEMT0035.H3K27ac.signal_unstranded.bigWig
-|CEMT Pooled Breast Basal |~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69063.CEEHRC.CEMT0035.H3K27me3.peak_calls.bigBed
-|CEMT Pooled Breast Basal ||https://epigenomesportal.ca/tracks/CEEHRC/hg38/69061.CEEHRC.CEMT0035.H3K27me3.signal_unstranded.bigWig
-|CEMT Pooled Breast Basal |~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69054.CEEHRC.CEMT0035.H3K4me1.peak_calls.bigBed
-|CEMT Pooled Breast Basal | |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69052.CEEHRC.CEMT0035.H3K4me1.signal_unstranded.bigWig
-|CEMT Pooled Breast Basal |~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69057.CEEHRC.CEMT0035.H3K4me3.peak_calls.bigBed
-|CEMT Pooled Breast Basal | |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69055.CEEHRC.CEMT0035.H3K4me3.signal_unstranded.bigWig
-|CEMT Pooled Breast Basal | |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69070.CEEHRC.CEMT0035.Input.signal_unstranded.bigWig
-|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69088.CEEHRC.CEMT0036.H3K27ac.peak_calls.bigBed
-|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69086.CEEHRC.CEMT0036.H3K27ac.signal_unstranded.bigWig
-|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69082.CEEHRC.CEMT0036.H3K27me3.peak_calls.bigBed
-|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69080.CEEHRC.CEMT0036.H3K27me3.signal_unstranded.bigWig
-|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69073.CEEHRC.CEMT0036.H3K4me1.peak_calls.bigBed
-|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69071.CEEHRC.CEMT0036.H3K4me1.signal_unstranded.bigWig
-|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69076.CEEHRC.CEMT0036.H3K4me3.peak_calls.bigBed
-|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69074.CEEHRC.CEMT0036.H3K4me3.signal_unstranded.bigWig
-|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69089.CEEHRC.CEMT0036.Input.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69107.CEEHRC.CEMT0037.H3K27ac.peak_calls.bigBed
-|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69105.CEEHRC.CEMT0037.H3K27ac.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69101.CEEHRC.CEMT0037.H3K27me3.peak_calls.bigBed
-|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69099.CEEHRC.CEMT0037.H3K27me3.signal_unstranded.bigWig
+|CEMT Pooled Breast Basal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69069.CEEHRC.CEMT0035.H3K27ac.peak_calls.bigBed|
+|CEMT Pooled Breast Basal ||https://epigenomesportal.ca/tracks/CEEHRC/hg38/69067.CEEHRC.CEMT0035.H3K27ac.signal_unstranded.bigWig|
+|CEMT Pooled Breast Basal |~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69063.CEEHRC.CEMT0035.H3K27me3.peak_calls.bigBed|
+|CEMT Pooled Breast Basal ||https://epigenomesportal.ca/tracks/CEEHRC/hg38/69061.CEEHRC.CEMT0035.H3K27me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Basal |~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69054.CEEHRC.CEMT0035.H3K4me1.peak_calls.bigBed|
+|CEMT Pooled Breast Basal | |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69052.CEEHRC.CEMT0035.H3K4me1.signal_unstranded.bigWig|
+|CEMT Pooled Breast Basal |~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69057.CEEHRC.CEMT0035.H3K4me3.peak_calls.bigBed|
+|CEMT Pooled Breast Basal | |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69055.CEEHRC.CEMT0035.H3K4me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Basal | |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69070.CEEHRC.CEMT0035.Input.signal_unstranded.bigWig|
+|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69088.CEEHRC.CEMT0036.H3K27ac.peak_calls.bigBed|
+|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69086.CEEHRC.CEMT0036.H3K27ac.signal_unstranded.bigWig|
+|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69082.CEEHRC.CEMT0036.H3K27me3.peak_calls.bigBed|
+|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69080.CEEHRC.CEMT0036.H3K27me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69073.CEEHRC.CEMT0036.H3K4me1.peak_calls.bigBed|
+|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69071.CEEHRC.CEMT0036.H3K4me1.signal_unstranded.bigWig|
+|CEMT Pooled Breast Stromal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69076.CEEHRC.CEMT0036.H3K4me3.peak_calls.bigBed|
+|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69074.CEEHRC.CEMT0036.H3K4me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Stromal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69089.CEEHRC.CEMT0036.Input.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69107.CEEHRC.CEMT0037.H3K27ac.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69105.CEEHRC.CEMT0037.H3K27ac.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69101.CEEHRC.CEMT0037.H3K27me3.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69099.CEEHRC.CEMT0037.H3K27me3.signal_unstranded.bigWig|
 |CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69092.CEEHRC.CEMT0037.H3K4me1.peak_calls.bigBed
 |CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69090.CEEHRC.CEMT0037.H3K4me1.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69095.CEEHRC.CEMT0037.H3K4me3.peak_calls.bigBed
-|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69093.CEEHRC.CEMT0037.H3K4me3.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69108.CEEHRC.CEMT0037.Input.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69126.CEEHRC.CEMT0038.H3K27ac.peak_calls.bigBed
-|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69124.CEEHRC.CEMT0038.H3K27ac.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69120.CEEHRC.CEMT0038.H3K27me3.peak_calls.bigBed
-|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69118.CEEHRC.CEMT0038.H3K27me3.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69111.CEEHRC.CEMT0038.H3K4me1.peak_calls.bigBed
-|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69109.CEEHRC.CEMT0038.H3K4me1.signal_unstranded.bigWig
-|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69114.CEEHRC.CEMT0038.H3K4me3.peak_calls.bigBed
-|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69112.CEEHRC.CEMT0038.H3K4me3.signal_unstranded.bigWiig
-|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69127.CEEHRC.CEMT0038.Input.signal_unstranded.bigWig
+|CEMT Pooled Breast Luminal|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69095.CEEHRC.CEMT0037.H3K4me3.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69093.CEEHRC.CEMT0037.H3K4me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69108.CEEHRC.CEMT0037.Input.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69126.CEEHRC.CEMT0038.H3K27ac.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69124.CEEHRC.CEMT0038.H3K27ac.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69120.CEEHRC.CEMT0038.H3K27me3.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69118.CEEHRC.CEMT0038.H3K27me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69111.CEEHRC.CEMT0038.H3K4me1.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69109.CEEHRC.CEMT0038.H3K4me1.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal Progenitor|~/CourseData/EPI_data/Module1/CHEERC_resources|https://epigenomesportal.ca/tracks/CEEHRC/hg38/69114.CEEHRC.CEMT0038.H3K4me3.peak_calls.bigBed|
+|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69112.CEEHRC.CEMT0038.H3K4me3.signal_unstranded.bigWig|
+|CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69127.CEEHRC.CEMT0038.Input.signal_unstranded.bigWig|
 
 ## <B>Module 1. BWA Alignment + BAM post processing</B>
 ***
