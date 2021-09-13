@@ -31,14 +31,18 @@ author: Martin Hirst and Edmund Su
 ## <B>Common tools of the trade</B>
 ***
 ### <B>- Explaination of tools</B>
-|Tool|Website|Info|
-|:---:|:---:|:---:|
-|BWA|http://bio-bwa.sourceforge.net/bwa.shtml| Genomic Sequence Read alignment tool |
-|PICARD|https://broadinstitute.github.io/picard/| Toolkit for BAM file manipulation|
-|SAMTOOLS|http://www.htslib.org/doc/samtools.html| Toolkit for BAM file manipulation |
-|BEDTOOLS|https://bedtools.readthedocs.io/en/latest/index.html | Toolkit for BED/BEDGRAPH file manipulation |
-|MACS2|https://github.com/macs3-project/MACS | Enriched region identifier for ChIP-seq |
-|UCSCtools|http://genome.ucsc.edu/goldenPath/help/bigWig.html| Manipulation of Wigs and Bed/Bedgraph to binary forms|
+
+[BWA](http://bio-bwa.sourceforge.net/bwa.shtml) Genomic Sequence Read alignment tool 
+
+[PICARD](https://broadinstitute.github.io/picard/) Toolkit for BAM file manipulation
+
+[SAMTOOLS](http://www.htslib.org/doc/samtools.html) Toolkit for BAM file manipulation 
+
+[BEDTOOLS](https://bedtools.readthedocs.io/en/latest/index.html)Toolkit for BED/BEDGRAPH file manipulation 
+
+[MACS2](https://github.com/macs3-project/MACS) Enriched region identifier for ChIP-seq 
+
+[UCSCtools](http://genome.ucsc.edu/goldenPath/help/bigWig.html)Manipulation of Wigs and Bed/Bedgraph to binary forms
 
 ### <B>- Resource files</B>
 |File name | File location| Source|
