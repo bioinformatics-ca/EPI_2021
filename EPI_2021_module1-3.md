@@ -15,19 +15,16 @@ author: Martin Hirst and Edmund Su
 
 *by Martin Hirst and Edmund Su*
 
-# Table of contents:
+##  Table of contents:
 
-<font size="5">[Common tools of the trade](#Common-tools-of-the-trade)</font>
-
-<font size="5">[Module 1. Alignment](#Module-1.-BWA-Alignment-+-BAM-post-processing)</font>
-
-<font size="5">[Module 2. Peak Calling](#Module-2.-Peak-Calling)</font>
-
-<font size="5">[Module 3. Differential Analysis](#Module-3.-Differential-analysis-)</font>
+1. [Common tools of the trade ](#Common-tools-of-the-trade)
+2. [Module 1. Alignment](#Module-1.-BWA-Alignment-+-BAM-post-processing)
+3. [Module 2. Peak Calling](#Module-2.-Peak-Calling)  
+4. [Module 3. Differential Analysis](#Module-3.-Differential-analysis)  
 
 
 
-
+<a name="Common-tools-of-the-trade"></a>
 ## <B>Common tools of the trade</B>
 ***
 ### <B>- Explaination of tools</B>
@@ -89,6 +86,7 @@ author: Martin Hirst and Edmund Su
 |CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69112.CEEHRC.CEMT0038.H3K4me3.signal_unstranded.bigWig|
 |CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69127.CEEHRC.CEMT0038.Input.signal_unstranded.bigWig|
 
+<a name="#Module-1.-BWA-Alignment-+-BAM-post-processing"></a>
 ## <B>Module 1. BWA Alignment + BAM post processing</B>
 ***
 
@@ -281,7 +279,7 @@ rm ~/workspace/alignments/${sample}.bam
 ```Shell
 Good practice to remove redundant files
 ```
-
+<a name="#Module-2.-Peak-Calling"></a>
 ## <B>Module 2. Peak Calling</B>
 ***
 <div><input type="checkbox" name="chk" checked>1. Dedup BAM file</div>
@@ -556,7 +554,7 @@ chr7:26981738-27365875
 Try Running H3K27me3, H3K4me1 and H3K4me3 on your own! When running H3K27me3 and H3K4me1 note the comments and code breakdown of step 2
 ```
 
-
+<a name="#Module-3.-Differential-analysis"></a>
 ## <B>Module 3. Differential analysis </B>
 ***
 
