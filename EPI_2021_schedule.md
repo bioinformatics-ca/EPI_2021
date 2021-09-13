@@ -19,5 +19,5 @@ home: https://bioinformaticsdotca.github.io/EPI_2021
 |	16:45	|	<font color="green">Break</font>	|	16:30	|	<font color="blue">Module 4: WGBS and analysis (Lab part 1)</font>	|	16:30	|	<font color="green">Break</font>	|
 |	17:15	|	<font color="blue">Module 2: Peak Calling and Visulization (Lab)</font>	|	18:00	|		|	17:00	|	<font color="blue">Module 5 - Integrative Analysis (Lab part 2)</font>	|
 |	18:15	|		|		|		|	18:00	|	Survey & Closing Remarks	|
-|		|		|		|		|	18:15	|		|![image](https://user-images.githubusercontent.com/16926280/132864924-ad9191e0-b1ed-42b6-8bac-7b18d028c5be.png)
+|		|		|		|		|	18:15	|		|
 
