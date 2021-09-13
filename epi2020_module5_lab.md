@@ -1,7 +1,7 @@
 ---
 layout: tutorial_page
-permalink: /epi2021_module5_lab
-title: Epigenomics Lab 5
+permalink: /EPI_2021_Module5_lab
+title: EPI 2021 Module 5 Lab
 header1: Workshop Pages for Students
 header2: Downstream analyses & integrative tools
 image: /site_images/CBW_Epigenome-data_icon.jpg
