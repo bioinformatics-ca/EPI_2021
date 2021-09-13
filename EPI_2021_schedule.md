@@ -8,7 +8,7 @@ image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/EPI_2021
 ---
 
-| | **Thursday, October 22** | | **Friday, October 23** || **Friday, October 23** |
+| | **Monday, September 13** | | **Tuesday, September 14** || **Wednesday, September 15** |
 | :---: | :---: | :---: | :---: | :---: | :---: |  
 |	10:00	|	Welcome	|	10:00	|	<font color="purple">Module 3: ChIP-seq Differential Analysis</font>	|	10:00	|	<font color="blue">Module 4: WGBS and analysis (Lab part 2)</font>	|
 |	10:15	|	<font color="purple">Module 1: Introduction to ChIP sequencing and analysis</font>	|	12:00	|	<font color="green">Break</font>	|	12:00	|	<font color="green">Break</font>	|
