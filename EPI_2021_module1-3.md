@@ -1,13 +1,3 @@
----
-layout: tutorial_page
-permalink: /EPI_2021_Module1_lab
-title: EPI 2021 Module 1 Lab
-header1: Workshop Pages for Students
-header2: Epigenomic Analysis 2021
-image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/EPI_2021
-description: Introduction to ChIP-seq and analysis
-author: Martin Hirst and Edmund Su
 
 ---
 
