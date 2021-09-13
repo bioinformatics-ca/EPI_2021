@@ -102,14 +102,17 @@ author: Martin Hirst and Edmund Su
 
 ### <B>1. Dedup BAM file</B>
 ##### Code:
-<code style="background:black;color:black">
-treatment_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_H3K27ac.bam
-treatment_dedup=~/workspace/peaks/MCF10A_H3K27ac.dedup.bam
-samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}
-input_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_Input.bam
-input_dedup=~/workspace/peaks/MCF10A_Input.dedup.bam
-samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}
-</code>
+<code style="background:black;color:black">treatment_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_H3K27ac.bam</code>
+
+<code style="background:black;color:black">treatment_dedup=~/workspace/peaks/MCF10A_H3K27ac.dedup.bam</code>
+
+<code style="background:black;color:black">samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}</code>
+
+<code style="background:black;color:black">input_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_Input.bam</code>
+
+<code style="background:black;color:black">input_dedup=~/workspace/peaks/MCF10A_Input.dedup.bam</code>
+
+<code style="background:black;color:black">samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}</code>
 
 ##### Code Breakdown:
 ```Shell
