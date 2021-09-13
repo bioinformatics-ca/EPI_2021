@@ -89,7 +89,8 @@ author: Martin Hirst and Edmund Su
 |CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69112.CEEHRC.CEMT0038.H3K4me3.signal_unstranded.bigWig|
 |CEMT Pooled Breast Luminal Progenitor| |https://epigenomesportal.ca/tracks/CEEHRC/hg38/69127.CEEHRC.CEMT0038.Input.signal_unstranded.bigWig|
 
-<a name="#Module1"></a>
+
+<a name="Module1"></a>
 ## <B>Module 1. BWA Alignment + BAM post processing</B>
 ***
 
@@ -282,7 +283,7 @@ rm ~/workspace/alignments/${sample}.bam
 ```Shell
 Good practice to remove redundant files
 ```
-<a name="#Module2"></a>
+<a name="Module2"></a>
 ## <B>Module 2. Peak Calling</B>
 ***
 <div><input type="checkbox" name="chk" checked>1. Dedup BAM file</div>
@@ -557,7 +558,7 @@ chr7:26981738-27365875
 Try Running H3K27me3, H3K4me1 and H3K4me3 on your own! When running H3K27me3 and H3K4me1 note the comments and code breakdown of step 2
 ```
 
-<a name="#Module3"></a>
+<a name="Module3"></a>
 ## <B>Module 3. Differential analysis </B>
 ***
 
