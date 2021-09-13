@@ -72,7 +72,7 @@ author: Martin Hirst and Edmund Su
 - https://epigenomesportal.ca/tracks/CEEHRC/hg38/69069.CEEHRC.CEMT0035.H3K27ac.peak_calls.bigBed
 
 2.CEMT Pooled Breast Basal 
--https://epigenomesportal.ca/tracks/CEEHRC/hg38/69067.CEEHRC.CEMT0035.H3K27ac.signal_unstranded.bigWig
+- https://epigenomesportal.ca/tracks/CEEHRC/hg38/69067.CEEHRC.CEMT0035.H3K27ac.signal_unstranded.bigWig
 
 3.CEMT Pooled Breast Basal 
 - ~/CourseData/EPI_data/Module1/CHEERC_resources
