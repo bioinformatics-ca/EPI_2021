@@ -1,9 +1,10 @@
 ---
 layout: tutorial_page
-permalink: /epi2021_module4_lab
-title: Epigenomics Lab 4
+permalink: /EPI_2021_Module4_lab
+title: EPI 2021 Module 4 Lab
 header1: Workshop Pages for Students
-header2: Whole Genome Bisulfite Sequencing
+header2: Introduction to WGBS and Analysis 
+image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/EPI_2021
 ---
 
