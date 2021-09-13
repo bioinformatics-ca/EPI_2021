@@ -736,22 +736,20 @@ bedtools intersect -v -b ${MCF10A_H3K27ac} -a ${Basal_H3K27ac} | wc -l # We swap
 
 #### <B>Dedup Bams</B>
 ##### Code:
-<code style="background:black;color:black">
-mkdir -p ~/workspace/peaks
-for mark in H3K27ac H3K4me3 H3K27me3 H3K4me1 Input;
-do
-    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${mark}.bam
-    dedup=~/workspace/peaks/MCF10A_${mark}.dedup.bam
-    samtools view -@4 ${bam} -bh -q10 -F1028 -o ${dedup}
-done 
-</code>
+<code style="background:black;color:black">mkdir -p ~/workspace/peaks</code>
+<code style="background:black;color:black">for mark in H3K27ac H3K4me3 H3K27me3 H3K4me1 Input;</code>
+<code style="background:black;color:black">do</code>
+<code style="background:black;color:black">    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${mark}.bam</code>
+<code style="background:black;color:black">    dedup=~/workspace/peaks/MCF10A_${mark}.dedup.bam</code>
+<code style="background:black;color:black">    samtools view -@4 ${bam} -bh -q10 -F1028 -o ${dedup}</code>
+<code style="background:black;color:black">done</code>
+
 
 #### <B>Peak Calling all the marks</B>
 ##### Code:
-<code style="background:black;color:black">
-input_frag=~/workspace/peaks/MCF10A_Input.dedup.bam
-for narrow_mark in H3K27ac H3K4me3;
-do
+<code style="background:black;color:black">input_frag=~/workspace/peaks/MCF10A_Input.dedup.bam
+<code style="background:black;color:black">for narrow_mark in H3K27ac H3K4me3;
+<code style="background:black;color:black">do
     treatment_frag=~/workspace/peaks/MCF10A_${narrow_mark}.dedup.bam
     macs3 callpeak -t ${treatment_frag} -c ${input_frag} -f BAMPE -g hs -n MCF10A_${narrow_mark} --keep-dup all --outdir ~/workspace/peaks/ --bdg 1> ~/workspace/peaks/${narrow_mark}.out.log 2> ~/workspace/peaks/${narrow_mark}.err.log 
 done
