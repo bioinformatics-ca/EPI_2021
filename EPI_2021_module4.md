@@ -110,17 +110,14 @@ This will define a variable `$WGBS_DATA` that will simplify future commands.
 
 ##### Check the Files
 
-Type the following command: `ls $WGBS_DATA`, what do you see? 
+**Question 1** 
 
-<details>
-
-  <summary>
+*Type the following command: `ls $WGBS_DATA`, what do you see?*
   
-**Solution** (click here)
-
-  </summary>
+**Answer** 
   
-You should see something similar to this
+You should see something similar to this:
+
 
 ```{:.output}
 WGBS.A34002.137160.chr19.1.fastq.gz
@@ -132,25 +129,17 @@ WGBS.A34002.137488.chr19.2.fastq.gz
 
 ```
 
-</details> 
 
 These are the files that will be used for the workshop. They contain a subset of WGBS reads from CEMT sample `CEMT0007`, which is a mammary gland epithelial cell line [(more information here)](https://ega-archive.org/datasets/EGAD00001000685). 
 
+**Question 2**
 
+*What do the ".1" and ".2" in the file names mean?*
 
-**What do the ".1" and ".2" in the file names mean?**
-
-<details>
-  
-  <summary>
-  
-**Solution** (click here)
-  
-  </summary>
+**Answer**
   
 They represent the `read1` and `read2` of the paired end reads. 
 
-</details> 
 
 ---
 
@@ -172,28 +161,22 @@ bismark --multicore 4 --bowtie2 $GENOME/genome/bismark_index \
     
 ```
 
-**What do all the options in the command mean?** (Hint check the help by using `bismark --help`)
+**Question 3**
 
-<details>
-
-  <summary>
+*What do all the options in the command mean?* (Hint check the help by using `bismark --help`)
   
-**Solution** (click here)
-
-  </summary>
+**Answer** 
   
-The `--multicore 4` option is to do multithreaded processing to improve speed.
+- The `--multicore 4` option is to do multithreaded processing to improve speed.
 
-The `--bowtie2` option is to use the mapping algorithm from bowtie2.
+- The `--bowtie2` option is to use the mapping algorithm from bowtie2.
 
-The `$GENOME/genome/bismark_index` specifies the location of the index for the reference genome to use. This uses the `$GENOME` variable we defined previously. 
+- The `$GENOME/genome/bismark_index` specifies the location of the index for the reference genome to use. This uses the `$GENOME` variable we defined previously. 
 
-The `-1 $WGBS_DATA/WGBS.A34002.137160.chr19.1.fastq.gz` specifies the location of read 1. Idem for `-2` which specifies read 2. This uses the `$WGBS_DATA` variable we defined previously. 
+- The `-1 $WGBS_DATA/WGBS.A34002.137160.chr19.1.fastq.gz` specifies the location of read 1. Idem for `-2` which specifies read 2. This uses the `$WGBS_DATA` variable we defined previously. 
 
 
 For more details, please refer to the Bismark [user guide](http://www.bioinformatics.babraham.ac.uk/projects/bismark/Bismark_User_Guide.pdf). 
-
-</details>
 
 
 ---
@@ -221,17 +204,14 @@ less WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
 
 ```
 
-**What was the mapping efficiency? What percent of C's were methylated in CpG context? ** 
+**Question 4**
 
-<details>
-
-  <summary>
+*What was the mapping efficiency? What percent of C's were methylated in CpG context?*
   
-**Solution** (click here)
-
-  </summary>
+**Answer** 
   
 According to the report: 
+
 
 ```{:output}
 ...
@@ -244,8 +224,6 @@ C methylated in unknown context (CN or CHN):    3.5%
 ...
 
 ```
-
-</details>
 
 Close the report by pressing `q`. 
 
@@ -278,15 +256,11 @@ WGBS.A34002.137160.chr19.1_bismark_bt2_PE_report.txt
 
 ### 2.3 Repeat Alignment for All Datasets
 
-**How would you repeat the alignment with the other datasets?**
+**Question 5**
 
-<details>
+*How would you repeat the alignment with the other datasets?*
 
-  <summary>
-  
-**Solution** (click here)
-
-  </summary>
+**Answer** 
 
 This is the command to run bismark on the two other samples: 
 
@@ -315,8 +289,6 @@ samtools index WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam
 ```
 
 
-</details>
-
 ---
 
 <a name="load_igv"></a>
@@ -325,30 +297,10 @@ samtools index WGBS.A34002.137488.chr19.1_bismark_bt2_pe_sorted.bam
 
 While you wait for the previous steps to finish executing, it is a good idea to begin exploring the alignments. 
 
-#### Copy Files to Your Local Computer to View in IGV
+#### Copy Files to Your Local Computer to View in IGV (optional)
 
-Retrieve the files called `WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam` and `WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai` from the server using your internet browser and the IP address of your AWS instance. 
+Retrieve the files called `WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam` and `WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai` from the server using your internet browser and the public IP address of your AWS instance. 
 
-Optionally, if you are not using Putty (i.e. if you are using a Linux or Mac computer) you can also retrieve the files directly using the terminal and `scp` using the commands below. 
-
-<details>
-
-  <summary>
-  
-**Optional download option** (click here)
-
-  </summary>
-  
-  
-```{bash}
-scp -i CBW.pem ubuntu@00.00.00.0:~/workspace/module4/WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam .
-scp -i CBW.pem ubuntu@00.00.00.0:~/workspace/module4/WGBS.A34002.137160.chr19.1_bismark_bt2_pe_sorted.bam.bai .
-
-```
-
-Remember that for the commands above to work, you need to be in the directory with the `CBW.pem` (or `CBW.cer`) file you downloaded from AWS when creating your instance. 
-
-</details>
 
 #### Launch IGV on your computer
 
@@ -356,9 +308,9 @@ If you haven't installed it yet, please get it here [IGV download](http://softwa
 
 Make sure that the human genome is selected in the top left corner. It should read: **Human (hg38)**.
 
-Load your sorted `bam` file in IGV using `File -> Load from file`. *For this to work, you need to have the index file (`.bai`) in the same location as the `bam` file.* 
+Load your sorted `bam` file in IGV using `File -> Load from file`. *For this to work, you need to have the index file (`.bai`) in the same location as the `bam` file.* You can also load this directly from the internet using the URL of this file you got from your public IP page, using `File -> Load from URL`. 
 
-Now go to the following location:
+Now, on IGV, go to the following location:
 
 ```
 chr19:43,375,889-45,912,052
@@ -397,15 +349,11 @@ bismark_methylation_extractor --bedGraph WGBS.A34002.137160.chr19.1_bismark_bt2_
 
 ```
 
-**How would you do the same for the other replicates?**
+**Question 6** 
 
-<details>
+*How would you do the same for the other replicates?*
 
-  <summary>
-  
-  **Solution:**
-  
-  </summary>
+**Answer**
 
 These are the commands that you should use:
 
@@ -417,17 +365,16 @@ bismark_methylation_extractor --bedGraph WGBS.A34002.137488.chr19.1_bismark_bt2_
 
 ```
 
-</details>
 
 ---
 
-Download *all* the files produced so far to your local computer using your internet browser. 
+Make sure that *all* the files produced so far are displayed in your internet browser. 
 
-**While you wait for all the steps and downloads to finish, you can ask the instructors any questions you might have up until this point.**
+**While you wait for all the steps to finish, you can ask the instructors any questions you might have up until this point.**
 
 ---
 
-Load all the downloaded files in IGV using `File -> Load from file`.
+Load all the files in IGV using `File -> Load from file` or `File -> Load from URL`.
 
 At this point, if you load the region `chr19:44,527,387-44,536,873` you should see something like
 
@@ -440,6 +387,8 @@ This promoter looks to be hypomethylated.
 How about `chr19:45,637,715-45,657,380`?
 
 *How would you look for a CpG island using this view of the data?*
+
+Keep exploring the files and see if you can find differences in the methylation profiles of the samples. 
 
 ---
 
@@ -545,16 +494,12 @@ myobj = methRead(file.list,
 
 ```
 
-**What do all the options in the `methRead()` command mean?**
+**Question 7** 
 
-<details>
-
-  <summary>
+*What do all the options in the `methRead()` command mean?*
   
-**Solution** (click here)
- 
-  </summary>
-  
+**Answer** 
+   
   
 - `file.list` object points to the location of the input data in a MethylKit format. 
 
@@ -569,10 +514,8 @@ myobj = methRead(file.list,
 - `mincov` specifies the minimum coverage required to be included in the object. 
 
 
-For more details, please refer to the MethylKit [user guide](https://bioconductor.org/packages/release/bioc/manuals/methylKit/man/methylKit.pdf) .
+For more details, please refer to the MethylKit [user guide](https://bioconductor.org/packages/release/bioc/manuals/methylKit/man/methylKit.pdf).
 
-
-</details>
 
 ---
 
@@ -625,13 +568,8 @@ myDiff = calculateDiffMeth(meth)
 
 To check the output, just type `myDiff` and read the summary. If you want an example of the output, check the solution below. 
 
-<details>
 
-  <summary>
-  
-  **Solution** (click here)
-  
-  </summary>
+**Example**  
 
 This is what the output looks like: 
 
@@ -653,8 +591,6 @@ context: CpG
 treament: 0 1 1 
 resolution: base 
 ```
-
-</details>
 
 ---
 
@@ -694,18 +630,14 @@ meth.tiles = unite(tiles, destrand=TRUE)
 
 Now, we will use the `calculateDiffMeth()` and `getMethylDiff()` functions to get the DMRs. 
 
+**Questions 8 & 9**
 
-**Do you know how to do it, based on the information above?**
+*Do you know how to do it, based on the information above?*
 
-**Based on the number of differentially methylated CpGs you found above, do you anticipate many statistically significant DMRs in your analysis?**
-
-<details>
-
-  <summary>
+*Based on the number of differentially methylated CpGs you found above, do you anticipate many statistically significant DMRs in your analysis?*
   
-  **Solution** (click here)
+**Answer** 
   
-  </summary> 
   
 Use the following commands to perform a `DMR` analysis: 
 
@@ -721,15 +653,14 @@ bedgraph(myDiff.tiles.hypo, file.name = "hypo.DMR.bedGraph", col.name = "qvalue"
 
 ```
 
-</details> 
 
 ---
 
 Using the navigation pane, download the bedGraph files you just produced and try to open them with IGV. 
 
-**Do the statistical results match what you had seen before when exploring the data?** 
+*Do the statistical results match what you had seen before when exploring the data?*
 
-**What interesting genomic features are found close to the DMRs? What could this mean?** 
+*What interesting genomic features are found close to the DMRs? What could this mean?*
 
 
 ### Congrats, you're done!
