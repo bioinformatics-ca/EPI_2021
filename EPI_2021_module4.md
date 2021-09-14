@@ -326,7 +326,7 @@ chr19:44,527,387-44,536,873
 
 You should see something like this:
 
-<img src="img/region2.png?raw=true" alt="Region" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/region2.png?raw=true" alt="Region" width="750" />
 
 *If it looks different, can you change the way the colors are displayed?*
 
@@ -378,7 +378,7 @@ Load all the files in IGV using `File -> Load from file` or `File -> Load from U
 
 At this point, if you load the region `chr19:44,527,387-44,536,873` you should see something like
 
-<img src="img/region2_full.png?raw=true" alt="Region" width="750" />
+<img src="https://github.com/bioinformatics-ca/EPI_2021/blob/master/img/region2_full.png?raw=true" alt="Region" width="750" />
 
 This promoter looks to be hypomethylated. 
 
