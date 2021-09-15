@@ -210,20 +210,20 @@ author: Martin Hirst and Edmund Su
 ```Shell
 mkdir ~/workspace/{alignments,fastqc}
 ```
-### <B>1. (DONE) Make a reference directory and download appropriate fasta reference @ https://hgdownload.cse.ucsc.edu/goldenpath/ (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz)</B>
+### <B>1. Make a reference directory and download appropriate fasta reference @ https://hgdownload.cse.ucsc.edu/goldenpath/ (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz). For the live tutorial this step was done for you. We will be using a shortened version containining only chr19</B>
 ##### Code:
-<code style="background:black;color:black">
+```Shell
 mkdir ~/CourseData/BWA_index
 wget https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz -O ~/CourseData/BWA_index/
 gunzip ~/CourseData/EPI_data/Module1/BWA_index/hg38.fa.gz
-</code>
+```
 
-### <B>2. (DONE) Index Fasta using BWA </B>
+### <B>2 .Index Fasta using BWA. For the live tutorial, this step was done for you.</B>
 ##### Code:
-<code style="background:black;color:black">
+```Shell
 bwa index ~/CourseData/EPI_data/Module1/BWA_index/chr19.hg38_no_alt.fa
 ls ~/CourseData/EPI_data/Module1/BWA_index/ -lth
-</code>
+```
 
 ##### Output:
 ```Shell
@@ -291,7 +291,7 @@ ref=~/CourseData/EPI_data/Module1/BWA_index/chr19.hg38_no_alt.fa
 read1=~/CourseData/EPI_data/Module1/MCF10A_resources/R1_input.fastq.gz
 read2=~/CourseData/EPI_data/Module1/MCF10A_resources/R2_input.fastq.gz
 sample=MCF10A_input_chr19
-bwa mem -M -t 2 ${ref} ${read1} ${read2} 2>~/workspace/alignments/alignment.log | samtools view -hbS -o ~/workspace/alignments/${sample}.bam
+bwa mem -M -t 4 ${ref} ${read1} ${read2} 2>~/workspace/alignments/alignment.log | samtools view -hbS -o ~/workspace/alignments/${sample}.bam
 ```
 ##### Output:
 ##### <i>Check log</i>
@@ -304,7 +304,7 @@ read1=~/CourseData/EPI_data/Module1/MCF10A_resources/R1_input.fastq.gz
 read2=~/CourseData/EPI_data/Module1/MCF10A_resources/R2_input.fastq.gz
 sample=MCF10A_input_chr19
 
-bwa mem -M -t 2 ${ref} ${read1} ${read2} 2>~/workspace/alignments/alignment.log # Alignment step {"-t 2":Peform alignment using two threads,"-M":mark short split hits as secondary}
+bwa mem -M -t 4 ${ref} ${read1} ${read2} 2>~/workspace/alignments/alignment.log # Alignment step {"-t 2":Peform alignment using four threads. Our tutorial uses m5.xlarge therefore provides four cores,"-M":mark short split hits as secondary}
 | samtools view -hbS -o ~/workspace/alignments/${sample}.bam # Converts SAM to BAM format {"h":Include Header, "b": output BAM, "S":detect input format}
 ```
 ### <B>5. Coordinate Sort alignment File</B>
@@ -312,16 +312,45 @@ bwa mem -M -t 2 ${ref} ${read1} ${read2} 2>~/workspace/alignments/alignment.log 
 ```Shell
 sample=MCF10A_input_chr19
 samtools sort  ~/workspace/alignments/${sample}.bam -o ~/workspace/alignments/${sample}.sorted.bam
+samtools view ~/workspace/alignments/${sample}.bam | head
+samtools view ~/workspace/alignments/${sample}.sorted.bam | head
 ```
 ##### Output:
-##### <i>N/A</i>
+##### Output from ~/workspace/alignments/MCF10A_input_chr19.bam:
+```Shell
+HS10_346:2:1101:3349:1883       83      chr19   49469101        60      75M     =       49468882        -294    CTTGACAAGAAGGTTTTGAGGCCCCGCCCTTAGGACTCAAGTTACTAAGGAAGAGGCTGTCCTTAGCAACAGGGN     DEEDDDDDDDDDDDDDDDDDDDFJJJJJJJJJJJJJJJJIIIIIIJJJJJJJJJJJJJIHJJHHHHHFFFFD=1#       NM:i:1  MD:Z:74G0       MC:Z:75M        AS:i:74 XS:i:0
+HS10_346:2:1101:3349:1883       163     chr19   49468882        60      75M     =       49469101        294     CCAGCAGGCCTGGCCAACGTGGTGACAGGAGACCGGGACCATCTGACCCGCTGCCTGGCCTTGCACCAAGACGTC     CCCFFFFFGHGHGIJJJJJFHIEHIIJJJICHHIIGGIJGIJJIJJJJHGBEDDEEDDDDDDDCCDCDDDDDDBD       NM:i:0  MD:Z:75 MC:Z:75M        AS:i:75 XS:i:0
+HS10_346:2:1101:3408:1953       83      chr19   23790237        60      75M     =       23790104        -208    TCCACCCGCCTAGGCTTCCCAAAGTGGTGGGATTACAGACGTGAGCCACTGGACCCGGCCTGATTTTCTCTTGAN     BDB9DDDEEFFFFFHHHHEJJJJJJJJIJJJJJJGIJJJIIJJJJJHGJJJIHJJJJJJJJJHHHHHFFFFD=1#       NM:i:2  MD:Z:47G26A0    MC:Z:5M1I69M    AS:i:69 XS:i:35
+HS10_346:2:1101:3408:1953       163     chr19   23790104        60      5M1I69M =       23790237        208     ATTCTCCTGTCTCAGTCTCCTGAGTAGCTGGGATTACAGGCGCCCGCCACTGTGCCCGGCTACTTTTTGTATTTT     CCCFFFFFDFFHHJJ?FHGIJJEHEFHIIGJJEGGIIFIIGHIJIJJJJIFIGJJIGGHEDEFEFEEED?DCFEE       NM:i:1  MD:Z:74 MC:Z:75M        AS:i:69 XS:i:50
+HS10_346:2:1101:11940:1853      99      chr19   42651286        60      75M     =       42651536        325     NTTTCTCCATCAACTTAGCTGGCAGCTCCTGTCCCCAGCAGCATCAGAGGCCCCATGAAAAGAGCTCCAGCAGGG     #1=DFFFFHHHHHJJJJJJJJJIJGIJJJIIIIJJJJIJJJJJJJJJJJJJJJJJJIJIJJJJJHHHHHFFFFFD       NM:i:1  MD:Z:0G74       MC:Z:75M        AS:i:74 XS:i:31
+HS10_346:2:1101:11940:1853      147     chr19   42651536        60      75M     =       42651286        -325    GGGAGGAGAGAAGGGAACTGTAGGCCAATGGCTTTATTGGGTCTAGGGTGTTATTGACAGGTTTCCAGAAGGGAG     HHHHJIJJJJJJIJIGHJJJJJJIHJJJJJIJJJJJJJJJJIGIJJJJJIHFCCCJJJJJJJHHHHHFFFFFCCC       NM:i:0  MD:Z:75 MC:Z:75M        AS:i:75 XS:i:0
+HS10_346:2:1101:20208:1926      83      chr19   5876554 60      75M     =       5876421 -208    GCGGTGAGGCCATCTATGCCCCTCGTTGGGGTCCTGGTCTTCATTGGACACCCCAGCTCCTCCCTCAGCCTGGGN     DDDDDDDDDDDEDDDDDDDDFFHHHJJJJJJJJJJJJJJJJJIJJIHDD:JJJJJJJJJJJJHHHHHFFFFD=4#       NM:i:2  MD:Z:15G58C0    MC:Z:32M1D24M2I17M      AS:i:69 XS:i:24
+HS10_346:2:1101:20208:1926      163     chr19   5876421 60      32M1D24M2I17M   =       5876554 208     GGGGCTCTCTTGCCCTCCCAGCCAGATCATCCTTCTACTGGCTCCTCCAACCACCCCTGTGCCCCTGATTCTAGG     CCCFFFFFHHHHHJJJJJIJJJJJJJJJJIJIIJIJJJJJIJJJICHIGHHHIIJJJCGEGGHHH=DBEFFDDEE       NM:i:3  MD:Z:32^T41     MC:Z:75M        AS:i:58 XS:i:0
+HS10_346:2:1101:21139:1859      83      chr19   41375797        60      75M     =       41375616        -256    AGCAAGACCCCGTTTTTTAAAAAATAATAATAAAAAAAAAATCCGCCGGGCGCGGTTGCTCACGCCTGTAATCCN     ####################################################################?<@?70#       NM:i:4  MD:Z:13C29T12G17T0      MC:Z:75M        AS:i:59 XS:i:28
+HS10_346:2:1101:21139:1859      163     chr19   41375616        60      75M     =       41375797        256     AACAAGCCAACACGCCTTCAGCACTCCTCCGCAAAAAAACACCCCTAAACAAAATAGGCCAGGCGCGGTGACTCA     :+:=?;+<<A7=<)<1+1+22?@3@B>B>30?A04==AA####################################       NM:i:2  MD:Z:13C31A29   MC:Z:75M        AS:i:65 XS:i:24
+```
+
+##### Output from ~/workspace/alignments/$MCF10A_input_chr19.sorted.bam:
+```Shell
+HS10_346:2:1304:19247:16557     117     chr19   60146   0       *       =       60146   0       GTTGAGTAATTGCTGAGATGGGCAGTAGAGATGCTCAGGTCTGTGGTCCCTTTCCATCCCCACTTGATCTATTTT     ###########################################################################       MC:Z:54M21S     AS:i:0  XS:i:0
+HS10_346:2:1304:19247:16557     185     chr19   60146   60      54M21S  =       60146   0       TACAAGGATAATCTGACCTGCAGGGTCGAGGAGTTGACGGTGCTGAGTTCCCTGGATGGCACCAAGATCGGCCCT     DCCDDDCCCDCDECEEEFFFFHGHHIIHFGHIGGEIFAHCIEHGGIGHGHEHEDGEIIIHFG?HFFDDFFFD@@@       NM:i:0  MD:Z:54 AS:i:54 XS:i:0
+HS10_346:2:1314:2495:92223      163     chr19   60167   60      75M     =       60313   221     AGGGTCAAGGAGTTGACGGTGCTGAGTTCCCTGCACTCTCAGTAGGGACAGGCCCTATGCTGCCACCTGTACATG     @@?DDDDDHHHHFGHJIJJFEHJJJJEIIIGHIJJJJGEIBHHGIJJIIJJJJJJJJIJJIJJJHGHHFDDFCEF       NM:i:1  MD:Z:6G68       MC:Z:75M        AS:i:70 XS:i:0
+HS10_346:2:1207:4332:57794      99      chr19   60172   60      75M     =       60350   253     CGAGGAGTTGACGGTGCTGAGTTCCCTGCACTCTCAGTAGGGACAGGCCCTATGCTGCCACCTGTACATGCTATC     @C@FFDFDFFFHHIHIIJHHGGIIJGIEEHIJIJJJIJJIJJGIGHIHIHHJJJJJJJJIHHHEEHHHHFFFFFF       NM:i:0  MD:Z:75 MC:Z:75M        AS:i:75 XS:i:0
+HS10_346:2:2315:10492:97635     121     chr19   60173   60      75M     =       60173   0       GAGGAGTGGACGGTGCTGAGTTCCCTGCTCTCTCAGTAGGGACAGGCCCTATGCTGCCACCTGTACATGCTATCA     ###########################################################################       NM:i:3  MD:Z:7T20A45T0  AS:i:64 XS:i:0
+HS10_346:2:2315:10492:97635     181     chr19   60173   0       *       =       60173   0       AAAAATCGAAAATACTTTTAACAATTTGTATTTGATTTATAACTTTTAAACATTTTTATAATGACATTTAAAAAA     IJIGIHFCBHEC=8GHJIIIHIEEEIHDGGHGIGIGGHGEEEGCIHHAC?HEGJJGJIIGHBHDDHHFFFFD@@@       MC:Z:75M        AS:i:0  XS:i:0
+HS10_346:2:1314:17241:18282     117     chr19   60211   0       *       =       60211   0       CTCTGTGATCTTCTCCATGGCAGGATCTCCCAGCAGGTAAAGCAGAGCCGGAGCCAGGTGCAGGCCATTGGAGAG     @CCD@@EEEHFHEA=HGGC@CF7=@@F;HF<CCBBDDB9DB@<>GG@E@HEIHACHDDHFDADF>HBDDDDB?@@       MC:Z:75M        AS:i:0  XS:i:0
+HS10_346:2:1314:17241:18282     185     chr19   60211   60      75M     =       60211   0       GGGACAGGCCCTATGCTGCCACCTGTACATGCTATCTGAAGGACAGCCTCCAGGGCACACAGAGGATGGTATTTA     ##AA=5;;BA;BB=(7.8/**)A7=909<A??BB????*A:7@11)22+3<3?3,33<2<=?CA<,C7?A?===:       NM:i:0  MD:Z:75 AS:i:75 XS:i:0
+HS10_346:2:1201:2781:75049      99      chr19   60221   60      75M     =       60484   338     CTATGCTGCCACCTGTACATGCTATCTGAAGGACAGCCTCCAGGGCACACAGAGGATGGTATTTACACATGCACA     CCCFFFFFHGGHHJJIJJJJJJJJJJJJJJJJJJJIIJJJJJGIJIIJJJJJIJJJJJJ@GIIJJJJIJHHHHHF       NM:i:0  MD:Z:75 MC:Z:75M        AS:i:75 XS:i:0
+HS10_346:2:1314:2495:92223      83      chr19   60313   60      75M     =       60167   -221    CAAGCACTTCACAACCCCTCATGATCACGTGCAGCAGACAAAGTGGCCTCTGCAGAGGGGGAACGGAGACCGGAG     DCADDDDEEDCDFDHIIIEJJJJIJIHFHGGIEHGIHIIJJJJJJJIJIGIJIIJJJJJJIHFGHHHFDFFFCCC       NM:i:1  MD:Z:41T33      MC:Z:75M        AS:i:70 XS:i:0
+```
+
 ##### Code Breakdown:
 ```Shell
 Coordinate sorts
 ```
 ##### Comment:
 ```Shell
-Take a look at the coordinate sorted bam vs original.
+Take a look at the coordinate sorted bam vs original. When we view, notice the coordinates in the sorted bam were altered
 ```
 
 ### <B>6. Duplicate marking alignment</B>
@@ -344,7 +373,14 @@ VALIDATION_STRINGENCY=LENIENT \ #Emit warnings but keep going if possible
 > ~/workspace/alignments/{sample}.dup_marked.error.log
 ```
 ##### Output:
-##### <i>See log</i>
+``Shell
+See log. Its a bit long but the break as follows:
+1. A summary of the command used (so we can check the paramters)
+2. A metric rollup equivalent to the flagstat step run later on
+3. A histogram where, Col 1 is expected coverage col 2 is actual
+"In case of many duplicates, the second column will result in much lower values, indicating that sequencing more will not add proportionally to the obtained effective coverage."
+https://github.com/broadinstitute/picard/issues/917
+```
 
 ### <B>7. Flagstats</B>
 ##### Code:
@@ -395,25 +431,21 @@ Good practice to remove redundant files
 
 
 ### <B>Setup</B>
-<code style="background:white;color:black">mkdir ~/workspace/peaks</code>
-
-<code style="background:black;color:black">samtools index -@4 ~/CourseData/EPI_data/Module1/MCF10A_resources/*.bam</code>
+```Shell
+mkdir ~/workspace/peaks
+samtools index -@4 ~/CourseData/EPI_data/Module1/MCF10A_resources/*.bam
+```
 
 ### <B>1. Dedup BAM file</B>
 ##### Code:
-
-<code style="background:black;color:black">treatment_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_H3K27ac.bam</code>
-
-<code style="background:black;color:black">treatment_dedup=~/workspace/peaks/MCF10A_H3K27ac.dedup.bam</code>
-
-<code style="background:black;color:black">samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}</code>
-
-<code style="background:black;color:black">input_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_Input.bam</code>
-
-<code style="background:black;color:black">input_dedup=~/workspace/peaks/MCF10A_Input.dedup.bam</code>
-
-<code style="background:black;color:black">samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}</code>
-
+```Shell
+treatment_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_H3K27ac.bam
+treatment_dedup=~/workspace/peaks/MCF10A_H3K27ac.dedup.bam
+samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}
+input_bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_Input.bam
+input_dedup=~/workspace/peaks/MCF10A_Input.dedup.bam
+samtools view -@4 ${treatment_bam} -bh -q10 -F1028 -o ${treatment_dedup}
+```
 
 ##### Code Breakdown:
 ```Shell
@@ -454,6 +486,8 @@ macs3 callpeak \ #General purpose peak calling mode
 --bdg \ #outputs pileup into bedgraphs
 1> ~/workspace/peaks/${name}.out.log \ #output log
 2>  ~/workspace/peaks/${name}.err.log #error log
+
+cat  ~/workspace/peaks/${name}.err.lo
 ```
 ##### Comments:
 ```Shell
@@ -468,6 +502,12 @@ H3K4me1
 H3K36me3
 H3K36me2
 H3K9me3
+
+Take a look at the err.log we see:
+1. Summary of command (a good way of troubleshooting if the wrong paramters were provided
+2. Progress of loading the two bams
+3. Note the line "mean fragment size is determined as 227.0 bp from treatment"
+
 ```
 ##### Output:
 ##### <i>See logs</i>
@@ -482,7 +522,7 @@ bedtools intersect -v -a ~/workspace/peaks/${sample}.narrowPeak -b ${blacklist} 
 bedtools intersect -u -a ~/workspace/peaks/${sample}.narrowPeak -b ${blacklist} > ~/workspace/peaks/${sample}.blacklist.narrowPeak
 ```
 ##### Output:
-##### <i>See log</i>
+##### <i>No log. Bedtools completes Silently</i>
 
 - #### <B>2.2 NarrowPeak inspection</B>
 ##### Code:
@@ -636,6 +676,13 @@ rm ~/workspace/bigBed/tmp
 2. Upload onto IGV
 3. Explore!
 ##### Comments:
+```Shell
+If you're following via amazon AWS, you should have a public port open to the IPv4 associated with your instance in which you can interact via browser
+The files you would want to import would be:
+<Your url>/BigBed//MCF10A_H3K27ac_peaks.blacklistRemoved.bb
+<Your url>//bigWig/bigWig/${sample}_treat_pileup.bw 
+<Your url>/bigWig/${sample}_control_lambda.bw
+```
 
 ```Shell
 Check out the provided regions!
@@ -687,6 +734,12 @@ bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${Basal_H3K27ac} | wc -l
 bedtools intersect -v -a ${MCF10A_H3K27ac} -b ${Basal_H3K27ac} | cut -f1-3 > ~/workspace/analysis/MCF10A_H3K27ac_unique.bed
 bedtools intersect -v -b ${MCF10A_H3K27ac} -a ${Basal_H3K27ac} | wc -l
 wc -l ~/workspace/analysis/MCF10A_H3K27ac_unique.bed
+
+head ${MCF10A_H3K27ac}
+head ${Basal_H3K27ac}
+bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${Basal_H3K27ac} | head
+bedtools intersect -u -b ${Basal_H3K27ac} -a ${MCF10A_H3K27ac} | head
+bedtools intersect -u -b ${MCF10A_H3K27ac} -a ${Basal_H3K27ac} | head
 ```
 
 ##### Output:
@@ -706,6 +759,13 @@ bedtools intersect \ #Tool intersects regions from A onto B to perform a functio
 bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${Basal_H3K27ac} | wc -l # Reports number of unique regions in A that are in common with B
 bedtools intersect -v -a ${MCF10A_H3K27ac} -b ${Basal_H3K27ac} | wc -l # Reports number of regions that are not found in B
 bedtools intersect -v -b ${MCF10A_H3K27ac} -a ${Basal_H3K27ac} | wc -l # We swapped A with B to report regions unique to B
+
+
+head ${MCF10A_H3K27ac} # Note the # of coluns : 7
+head ${Basal_H3K27ac} # Note the # of coluns : 3
+bedtools intersect -u -a ${MCF10A_H3K27ac} -b ${Basal_H3K27ac} | head # Bedtools always returns the input of "-a" queried against "-b" so in this case our output has 7 cols
+bedtools intersect -u -b ${Basal_H3K27ac} -a ${MCF10A_H3K27ac} | head # If we swap the command positions, does this change? No b/c the command is essentially the same
+bedtools intersect -u -b ${MCF10A_H3K27ac} -a ${Basal_H3K27ac} | head # Here we swapped the files around and returned Basal_H3K27ac (3 cols)
 ```
 
 ##### Peak Count Results:
@@ -736,153 +796,170 @@ bedtools intersect -v -b ${MCF10A_H3K27ac} -a ${Basal_H3K27ac} | wc -l # We swap
 
 #### <B>Dedup Bams</B>
 ##### Code:
-<code style="background:black;color:black">mkdir -p ~/workspace/peaks</code>
-<code style="background:black;color:black">for mark in H3K27ac H3K4me3 H3K27me3 H3K4me1 Input;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${mark}.bam</code>
-<code style="background:black;color:black">    dedup=~/workspace/peaks/MCF10A_${mark}.dedup.bam</code>
-<code style="background:black;color:black">    samtools view -@4 ${bam} -bh -q10 -F1028 -o ${dedup}</code>
-<code style="background:black;color:black">done</code>
-
+```Shell
+mkdir -p ~/workspace/peaks
+for mark in H3K27ac H3K4me3 H3K27me3 H3K4me1 Input;
+do
+    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${mark}.bam
+    dedup=~/workspace/peaks/MCF10A_${mark}.dedup.bam
+    samtools view -@4 ${bam} -bh -q10 -F1028 -o ${dedup}
+done
+```
 
 #### <B>Peak Calling all the marks</B>
 ##### Code:
-<code style="background:black;color:black">input_frag=~/workspace/peaks/MCF10A_Input.dedup.bam</code>
-<code style="background:black;color:black">for narrow_mark in H3K27ac H3K4me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    treatment_frag=~/workspace/peaks/MCF10A_${narrow_mark}.dedup.bam</code>
-<code style="background:black;color:black">    macs3 callpeak -t ${treatment_frag} -c ${input_frag} -f BAMPE -g hs -n MCF10A_${narrow_mark} --keep-dup all --outdir ~/workspace/peaks/ --bdg 1> ~/workspace/peaks/${narrow_mark}.out.log 2> ~/workspace/peaks/${narrow_mark}.err.log </code>
-<code style="background:black;color:black">done</code>
-<code style="background:black;color:black">for broad_mark in H3K4me1 H3K27me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    treatment_frag=~/workspace/peaks/MCF10A_${broad_mark}.dedup.bam</code>
-<code style="background:black;color:black">    macs3 callpeak -t ${treatment_frag} -c ${input_frag} -f BAMPE -g hs -n MCF10A_${broad_mark} --keep-dup all --outdir ~/workspace/peaks/ --bdg --broad 1> ~/workspace/peaks/${broad_mark}.out.log 2> ~/workspace/peaks/${broad_mark}.err.log </code>
-<code style="background:black;color:black">done
+```Shell
+input_frag=~/workspace/peaks/MCF10A_Input.dedup.bam
+for narrow_mark in H3K27ac H3K4me3;
+do
+    treatment_frag=~/workspace/peaks/MCF10A_${narrow_mark}.dedup.bam
+    macs3 callpeak -t ${treatment_frag} -c ${input_frag} -f BAMPE -g hs -n MCF10A_${narrow_mark} --keep-dup all --outdir ~/workspace/peaks/ --bdg 1> ~/workspace/peaks/${narrow_mark}.out.log 2> ~/workspace/peaks/${narrow_mark}.err.log 
+done
+for broad_mark in H3K4me1 H3K27me3;
+do
+    treatment_frag=~/workspace/peaks/MCF10A_${broad_mark}.dedup.bam
+    macs3 callpeak -t ${treatment_frag} -c ${input_frag} -f BAMPE -g hs -n MCF10A_${broad_mark} --keep-dup all --outdir ~/workspace/peaks/ --bdg --broad 1> ~/workspace/peaks/${broad_mark}.out.log 2> ~/workspace/peaks/${broad_mark}.err.log 
+done
+```
 
 
 #### <B>Blacklist Filtering all Peaks</B>
 ##### Code:
-<code style="background:black;color:black">blacklist=~/CourseData/EPI_data/Module1/QC_resources/hg38_blacklist.bed</code>
-<code style="background:black;color:black">for narrow_mark in H3K27ac H3K4me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bedtools intersect -v -a ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.narrowPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak</code>
-<code style="background:black;color:black">    bedtools intersect -u -a ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.narrowPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklist.narrowPeak</code>
-<code style="background:black;color:black">done</code>
-<code style="background:black;color:black">for broad_mark in H3K4me1 H3K27me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bedtools intersect -v -a ~/workspace/peaks/MCF10A_${broad_mark}_peaks.broadPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.broadPeak</code>
-<code style="background:black;color:black">    bedtools intersect -u -a ~/workspace/peaks/MCF10A_${broad_mark}_peaks.broadPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklist.broadPeak</code>
-<code style="background:black;color:black">done
-
+```Shell
+blacklist=~/CourseData/EPI_data/Module1/QC_resources/hg38_blacklist.bed
+for narrow_mark in H3K27ac H3K4me3;
+do
+    bedtools intersect -v -a ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.narrowPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak
+    bedtools intersect -u -a ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.narrowPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklist.narrowPeak
+done
+for broad_mark in H3K4me1 H3K27me3;
+do
+    bedtools intersect -v -a ~/workspace/peaks/MCF10A_${broad_mark}_peaks.broadPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.broadPeak
+    bedtools intersect -u -a ~/workspace/peaks/MCF10A_${broad_mark}_peaks.broadPeak -b ${blacklist} > ~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklist.broadPeak
+done
+```
 
 #### <B>BigWig converting all your *treat_pileup.bdg</B>
 ##### Code:
-<code style="background:black;color:black">mkdir -p ~/workspace/{bigBed,bigWig}</code>
-<code style="background:black;color:black">chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes</code>
-<code style="background:black;color:black">for mark in H3K27ac H3K4me3 H3K27me3 H3K4me1</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    input_bedgraph=~/workspace/peaks/MCF10A_${mark}_treat_pileup.bdg</code>
-<code style="background:black;color:black">    output_bigwig=~/workspace/bigWig/MCF10A_${mark}_treat_pileup.bw</code>
-<code style="background:black;color:black">    sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/bigWig/tmp</code>
-<code style="background:black;color:black">    bedGraphToBigWig ~/workspace/bigWig/tmp ${chrom_sizes} ${output_bigwig}</code>
-<code style="background:black;color:black">    rm ~/workspace/bigWig/tmp</code>
-<code style="background:black;color:black">done</code>
+```Shell
+mkdir -p ~/workspace/{bigBed,bigWig}
+chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes
+for mark in H3K27ac H3K4me3 H3K27me3 H3K4me1
+do
+    input_bedgraph=~/workspace/peaks/MCF10A_${mark}_treat_pileup.bdg
+    output_bigwig=~/workspace/bigWig/MCF10A_${mark}_treat_pileup.bw
+    sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/bigWig/tmp
+    bedGraphToBigWig ~/workspace/bigWig/tmp ${chrom_sizes} ${output_bigwig}
+    rm ~/workspace/bigWig/tmp
+done
 
-<code style="background:black;color:black">sample="MCF10A_H3K27ac"</code>
-<code style="background:black;color:black">input_bedgraph=~/workspace/peaks/${sample}_control_lambda.bdg</code>
-<code style="background:black;color:black">output_bigwig=~/workspace/bigWig/${sample}_control_lambda.bw</code>
-<code style="background:black;color:black">chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes</code>
-<code style="background:black;color:black">sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/bigWig/tmp</code>
-<code style="background:black;color:black">bedGraphToBigWig ~/workspace/bigWig/tmp ${chrom_sizes} ${output_bigwig}</code>
-<code style="background:black;color:black">rm ~/workspace/bigWig/tmp</code>
-
+sample="MCF10A_H3K27ac"
+input_bedgraph=~/workspace/peaks/${sample}_control_lambda.bdg
+output_bigwig=~/workspace/bigWig/${sample}_control_lambda.bw
+chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes
+sort -k1,1 -k2,2n ${input_bedgraph} > ~/workspace/bigWig/tmp
+bedGraphToBigWig ~/workspace/bigWig/tmp ${chrom_sizes} ${output_bigwig}
+rm ~/workspace/bigWig/tmp
+```
 
 
 #### <B>BigBed converting all your *Peaks</B>
 ##### Code:
-<code style="background:black;color:black">mkdir -p ~/workspace/{bigBed,bigWig}</code>
-<code style="background:black;color:black">chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes</code>
-<code style="background:black;color:black">for narrow_mark in H3K27ac H3K4me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    input_bed=~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak</code>
-<code style="background:black;color:black">    output_bigbed=~/workspace/bigBed/MCF10A_${narrow_mark}_peaks.blacklistRemoved.bb</code>
-<code style="background:black;color:black">    chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes</code>
-<code style="background:black;color:black">    cut -f1-3 ${input_bed} | sort -k1,1 -k2,2n  > ~/workspace/bigBed/tmp</code>
-<code style="background:black;color:black">    bedToBigBed ~/workspace/bigBed/tmp ${chrom_sizes} ${output_bigbed}</code>
-<code style="background:black;color:black">done</code>
-<code style="background:black;color:black">for broad_mark in H3K4me1 H3K27me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    input_bed=~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.broadPeak</code>
-<code style="background:black;color:black">    output_bigbed=~/workspace/bigBed/MCF10A_${broad_mark}_peaks.blacklistRemoved.bb</code>
-<code style="background:black;color:black">    chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes</code>
-<code style="background:black;color:black">    cut -f1-3 ${input_bed} | sort -k1,1 -k2,2n  > ~/workspace/bigBed/tmp</code>
-<code style="background:black;color:black">    bedToBigBed ~/workspace/bigBed/tmp ${chrom_sizes} ${output_bigbed}</code>
-<code style="background:black;color:black">done</code>
+```Shell
+mkdir -p ~/workspace/{bigBed,bigWig}
+chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes
+for narrow_mark in H3K27ac H3K4me3;
+do
+    input_bed=~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak
+    output_bigbed=~/workspace/bigBed/MCF10A_${narrow_mark}_peaks.blacklistRemoved.bb
+    chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes
+    cut -f1-3 ${input_bed} | sort -k1,1 -k2,2n  > ~/workspace/bigBed/tmp
+    bedToBigBed ~/workspace/bigBed/tmp ${chrom_sizes} ${output_bigbed}
+done
+for broad_mark in H3K4me1 H3K27me3;
+do
+    input_bed=~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.broadPeak
+    output_bigbed=~/workspace/bigBed/MCF10A_${broad_mark}_peaks.blacklistRemoved.bb
+    chrom_sizes=~/CourseData/EPI_data/Module1/QC_resources/hg38.chrom.sizes
+    cut -f1-3 ${input_bed} | sort -k1,1 -k2,2n  > ~/workspace/bigBed/tmp
+    bedToBigBed ~/workspace/bigBed/tmp ${chrom_sizes} ${output_bigbed}
+done
+```
 
 #### <B>Total read counts per BAM</B>
 ##### Code:
-<code style="background:black;color:black">for narrow_mark in H3K27ac H3K4me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${narrow_mark}.bam</code>
-<code style="background:black;color:black">    peak=~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak</code>
-<code style="background:black;color:black">    echo total reads in ${narrow_mark} $(samtools view -@4 ${bam} -q10 -F1028 -c )</code>
-<code style="background:black;color:black">done</code>
-<code style="background:black;color:black">for broad_mark in H3K4me1 H3K27me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${broad_mark}.bam</code>
-<code style="background:black;color:black">    peak=~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.narrowPeak</code>
-<code style="background:black;color:black">    echo total reads in ${broad_mark} $(samtools view -@4 ${bam} -bh -q10 -F1028 -c )</code>
-<code style="background:black;color:black">done</code>
+```Shell
+for narrow_mark in H3K27ac H3K4me3;
+do
+    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${narrow_mark}.bam
+    peak=~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak
+    echo total reads in ${narrow_mark} $(samtools view -@4 ${bam} -q10 -F1028 -c )
+done
+for broad_mark in H3K4me1 H3K27me3;
+do
+    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${broad_mark}.bam
+    peak=~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.narrowPeak
+    echo total reads in ${broad_mark} $(samtools view -@4 ${bam} -bh -q10 -F1028 -c )
+done
+```
 
 
 #### <B>Reads in Enriched region per BAM</B>
 ##### Code:
-<code style="background:black;color:black">for narrow_mark in H3K27ac H3K4me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${narrow_mark}.bam</code>
-<code style="background:black;color:black">    peak=~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak</code>
-<code style="background:black;color:black">    echo enriched reads in ${narrow_mark} $(samtools view -@4 ${bam} -q10 -F1028 -c -L ${peak})</code>
-<code style="background:black;color:black">done</code>
-<code style="background:black;color:black">for broad_mark in H3K4me1 H3K27me3;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${broad_mark}.bam</code>
-<code style="background:black;color:black">    peak=~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.broadPeak</code>
-<code style="background:black;color:black">    echo enriched reads in ${broad_mark} $(samtools view -@4 ${bam} -bh -q10 -F1028 -c -L ${peak})</code>
-<code style="background:black;color:black">done</code>
+```Shell
+for narrow_mark in H3K27ac H3K4me3;
+do
+    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${narrow_mark}.bam
+    peak=~/workspace/peaks/MCF10A_${narrow_mark}_peaks.blacklistRemoved.narrowPeak
+    echo enriched reads in ${narrow_mark} $(samtools view -@4 ${bam} -q10 -F1028 -c -L ${peak})
+done
+for broad_mark in H3K4me1 H3K27me3;
+do
+    bam=~/CourseData/EPI_data/Module1/MCF10A_resources/MCF10A_${broad_mark}.bam
+    peak=~/workspace/peaks/MCF10A_${broad_mark}_peaks.blacklistRemoved.broadPeak
+    echo enriched reads in ${broad_mark} $(samtools view -@4 ${bam} -bh -q10 -F1028 -c -L ${peak})
+done
+```
 
 #### <B>Reads in Domain regions per BAM</B>
 ##### Code:
+```Shell
+for file in $(ls ~/CourseData/EPI_data/Module1/QC_resources/* | grep bed | grep -v blacklist);
+do
+    for bam in $(ls ~/CourseData/EPI_data/Module1/MCF10A_resources/*bam );
+    do
+        echo $(basename ${bam}) $(basename ${file}) $(samtools view -@4 -q 10 -F 1028 ${bam} -L $file -c )
+    done
+done
+```
 
-<code style="background:black;color:black">for file in $(ls ~/CourseData/EPI_data/Module1/QC_resources/* | grep bed | grep -v blacklist);</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    for bam in $(ls ~/CourseData/EPI_data/Module1/MCF10A_resources/*bam );</code>
-<code style="background:black;color:black">    do</code>
-<code style="background:black;color:black">        echo $(basename ${bam}) $(basename ${file}) $(samtools view -@4 -q 10 -F 1028 ${bam} -L $file -c )</code>
-<code style="background:black;color:black">    done</code>
-<code style="background:black;color:black">done</code>
 
 #### <B>Counts total peaks per file</B>
 ##### Code:
-<code style="background:black;color:black">for file in $(ls ~/workspace/peaks/*.blacklistRemoved.*Peak);</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    wc -l $file</code>
-<code style="background:black;color:black">done</code>
-<code style="background:black;color:black">for file in $(ls ~/CourseData/EPI_data/Module1/CEEHRC_resources/*.bed);</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    wc -l $file</code>
-<code style="background:black;color:black">done</code>
+```Shell
+for file in $(ls ~/workspace/peaks/*.blacklistRemoved.*Peak);
+do
+    wc -l $file
+done
+for file in $(ls ~/CourseData/EPI_data/Module1/CEEHRC_resources/*.bed);
+do
+    wc -l $file
+done
+```
 
 #### <B>Counts total peaks per overlap</B>
 ##### Code:
-<code style="background:black;color:black">for histone_mark in H3K27ac H3K27me3 H3K4me3 H3K4me1;</code>
-<code style="background:black;color:black">do</code>
-<code style="background:black;color:black">    for fileA in $(ls ~/workspace/peaks/*${histone_mark}*.blacklistRemoved*Peak);</code>
-<code style="background:black;color:black">    do</code>
-<code style="background:black;color:black">        for fileB in $(ls ~/CourseData/EPI_data/Module1/CEEHRC_resources/*${histone_mark}*.bed);</code>
-<code style="background:black;color:black">        do</code>
-<code style="background:black;color:black">            echo $(basename $fileA) $(basename $fileB) AuB $(bedtools intersect -u -a $fileA -b $fileB | wc -l)</code>
-<code style="background:black;color:black">            echo $(basename $fileA) $(basename $fileB) A-B $(bedtools intersect -v -a $fileA -b $fileB | wc -l)</code>
-<code style="background:black;color:black">            echo $(basename $fileA) $(basename $fileB) B-A $(bedtools intersect -v -b $fileA -a $fileB | wc -l)</code>
-<code style="background:black;color:black">        done</code>
-<code style="background:black;color:black">    done</code>
-<code style="background:black;color:black">done</code>
+```Shell
+for histone_mark in H3K27ac H3K27me3 H3K4me3 H3K4me1;
+do
+    for fileA in $(ls ~/workspace/peaks/*${histone_mark}*.blacklistRemoved*Peak);
+    do
+        for fileB in $(ls ~/CourseData/EPI_data/Module1/CEEHRC_resources/*${histone_mark}*.bed);
+        do
+            echo $(basename $fileA) $(basename $fileB) AuB $(bedtools intersect -u -a $fileA -b $fileB | wc -l)
+            echo $(basename $fileA) $(basename $fileB) A-B $(bedtools intersect -v -a $fileA -b $fileB | wc -l)
+            echo $(basename $fileA) $(basename $fileB) B-A $(bedtools intersect -v -b $fileA -a $fileB | wc -l)
+        done
+    done
+done
+```
