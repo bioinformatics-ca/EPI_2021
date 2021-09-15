@@ -373,9 +373,9 @@ VALIDATION_STRINGENCY=LENIENT \ #Emit warnings but keep going if possible
 > ~/workspace/alignments/{sample}.dup_marked.error.log
 ```
 ##### Output:
-``Shell
-See log. Its a bit long but the break as follows:
-1. A summary of the command used (so we can check the paramters)
+```Shell
+See log. Its a bit long but the breakdown as follows:
+1. A summary of the command used (so we can check the parameters)
 2. A metric rollup equivalent to the flagstat step run later on
 3. A histogram where, Col 1 is expected coverage col 2 is actual
 "In case of many duplicates, the second column will result in much lower values, indicating that sequencing more will not add proportionally to the obtained effective coverage."
